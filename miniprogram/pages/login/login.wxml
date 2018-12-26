@@ -1,0 +1,14 @@
+<!--pages/login/login.wxml-->
+<view>
+
+  <!-- 当前用户 -->
+  <view>
+    
+  </view>
+
+  <!-- 用户列表 -->
+  <view>
+
+  </view>
+
+</view>

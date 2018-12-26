@@ -1,0 +1,17 @@
+/* pages/entry/entry.wxss */
+
+.header {
+  text-align: center;
+}
+
+.header-img {
+  background: #eee;
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 150rpx;
+  box-shadow: 1px 1px 2px #aaa;
+}
+
+.header-img image {
+  max-width: 100%;
+}
