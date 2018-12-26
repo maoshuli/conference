@@ -25,7 +25,9 @@ Page({
         scope: 'all'
       },
       success: res => {
-        console.log(res.result)
+        // 所有用户
+        let allData = res.result.data;
+        console.log('所有用户信息allData：',allData)
       }
 
     })
