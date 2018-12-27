@@ -28,6 +28,11 @@ Page({
         // 所有用户
         let allData = res.result.data;
         console.log('所有用户信息allData：',allData)
+        // 先打印自己信息
+        this.setData({
+          allData: allData
+        })
+
       }
 
     })

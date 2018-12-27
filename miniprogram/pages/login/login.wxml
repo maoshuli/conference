@@ -2,13 +2,19 @@
 <view>
 
   <!-- 当前用户 -->
-  <view>
-    
+  <view class="self">
+    <view class="self_img">
+      <image src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <view class="self_name">
+      <text>{{userInfo.nickName}}</text>
+    </view>
+    <view class="self_status">已签到</view>
   </view>
 
   <!-- 用户列表 -->
   <view>
-
+    <text>{{userInfo.allData}}</text>
   </view>
 
 </view>
