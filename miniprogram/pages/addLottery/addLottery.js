@@ -10,7 +10,30 @@ Page({
   },
 
   submit: function(){
-    
+      wx.cloud.callFunction({
+        name: 'addLottery',
+        data: {
+          name: this.data.value,
+          num: this.data.num
+        },
+        success: res => {
+          
+        }
+      })
+  },
+
+  // 奖项名称更改
+  onChange: function(e){
+    console.log(e.detail)
+    this.setData({
+      value: e.detail
+    })
+  },
+  // 奖项人数修改
+  onChangeNum: function(e){
+    this.setData({
+      num: e.detail
+    })
   },
 
   /**

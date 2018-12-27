@@ -8,7 +8,7 @@
     <van-cell-group>
       <van-field
         value="{{ value }}"
-        placeholder="请输入用户名"
+        placeholder="请输入奖项名称"
         border="{{ true }}"
         bind:change="onChange"
       />
@@ -17,7 +17,7 @@
     <!-- 中奖人数 -->
     <view class="setNumber">
       <text>中奖人数：</text>
-      <van-stepper value="{{ num }}"  />
+      <van-stepper value="{{ 1 }}"  bind:change="onChangeNum"/>
     </view>
   </view>
 
