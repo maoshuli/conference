@@ -9,7 +9,11 @@
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib",
-    "pages/animate/animate"
+    "pages/animate/animate",
+    "pages/mark/mark",
+    "pages/configure/configure",
+    "pages/lottery/lottery",
+    "pages/addLottery/addLottery"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

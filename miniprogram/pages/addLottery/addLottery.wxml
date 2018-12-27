@@ -1,0 +1,31 @@
+<!--pages/addLottery/addLottery.wxml-->
+<!-- 管理配置抽奖页面 -->
+
+<view>
+  
+  <!-- 设置新的奖项 -->
+  <view class="setLottery">
+    <van-cell-group>
+      <van-field
+        value="{{ value }}"
+        placeholder="请输入用户名"
+        border="{{ true }}"
+        bind:change="onChange"
+      />
+    </van-cell-group>
+
+    <!-- 中奖人数 -->
+    <view class="setNumber">
+      <text>中奖人数：</text>
+      <van-stepper value="{{ num }}"  />
+    </view>
+  </view>
+
+  <!-- 提交奖项到数据库 -->
+  <view class="btn">
+    <van-button type="default" bindtap="submit">提交抽奖</van-button>
+  </view>
+
+
+
+</view>

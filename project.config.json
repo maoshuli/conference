@@ -2,11 +2,13 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"nodeModules": true,
+		"autoAudits": false
 	},
 	"appid": "wxfd94413101aa3f3d",
 	"projectname": "conference",
@@ -28,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 6,
 			"list": [
 				{
 					"id": 1,
@@ -47,6 +49,29 @@
 					"name": "用户列表",
 					"pathName": "pages/login/login",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "评分配置",
+					"pathName": "pages/mark/mark",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "总配置",
+					"pathName": "pages/configure/configure",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "抽奖",
+					"pathName": "pages/lottery/lottery",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "抽奖配置",
+					"pathName": "pages/addLottery/addLottery"
 				}
 			]
 		}

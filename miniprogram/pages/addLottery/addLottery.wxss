@@ -1,0 +1,24 @@
+/* pages/addLottery/addLottery.wxss */
+
+.setLottery {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx;
+}
+
+.van-cell-group {
+  font-size: 46rpx;
+  color: #000;
+}
+
+.setNumber {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 40rpx;
+}

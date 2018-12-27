@@ -10,6 +10,27 @@ Page({
     userInfo: null,
   },
 
+  // 跳转打分页面
+  mark: function(){
+    wx.navigateTo({
+      url: '../mark/mark',
+    })
+  },
+
+  // 跳转抽奖页面
+  lottery: function(){
+    wx.navigateTo({
+      url: '../lottery/lottery',
+    })
+  },
+
+  // 点击管理，跳转到配置页
+  confugure: function(){
+    wx.navigateTo({
+      url: '../configure/configure',
+    })
+  },
+
   // 点击添加用户
   addUser: function(e){
 

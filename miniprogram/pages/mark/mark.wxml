@@ -1,0 +1,38 @@
+<!--pages/mark/mark.wxml-->
+<view>
+  <!-- 当前已经添加的节目 -->
+  <!-- 进入页面时从数据库获取，添加节目后可以看到新节目 -->
+  <view>
+
+  </view>
+  <!-- 将要添加的节目 -->
+  <view>
+    <!-- 需要的信息
+         节目名称
+         表演团队
+         节目类型
+    -->
+    <view>节目名称</view>
+    <van-cell-group>
+      <van-field
+        value="{{ value }}"
+        placeholder="请输入用户名"
+        border="{{ false }}"
+        bind:change="onChange"
+      />
+  </van-cell-group>
+    <view>节目类型</view>
+    <input type="text"></input>
+    <view>表演团队</view>
+    <input type="text"></input>
+    <view>
+      <van-button type="primary">重置表单</van-button>
+      <van-button type="primary">添加节目</van-button>
+    </view>
+  </view>
+  <view class="">
+    <!-- 设置使评分开始 -->
+    <van-button type="primary">开始评分</van-button>
+  </view>
+  
+</view>

@@ -1,0 +1,7 @@
+<!--pages/configure/configure.wxml-->
+<text>pages/configure/configure.wxml</text>
+<!-- 配置页面 -->
+<view>
+  <button bindtap="toMark">设置评分</button>
+  <button bindtap="toLottery">设置奖项</button>
+</view>
