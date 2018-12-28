@@ -2,6 +2,13 @@
 <!-- 管理配置抽奖页面 -->
 
 <view>
+  <!-- 获取到奖品信息 -->
+  <view>
+    <view wx:for="{{lottery}}" wx:key="{{index}}">
+      {{index + 1}}.奖项名称：{{item.name}}==
+      中奖人数：{{item.num}}
+    </view>
+  </view>
   
   <!-- 设置新的奖项 -->
   <view class="setLottery">
@@ -17,7 +24,7 @@
     <!-- 中奖人数 -->
     <view class="setNumber">
       <text>中奖人数：</text>
-      <van-stepper value="{{ 1 }}"  bind:change="onChangeNum"/>
+      <van-stepper value="{{ num }}"  bind:change="onChangeNum"/>
     </view>
   </view>
 

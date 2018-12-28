@@ -5,7 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
+    lottery: '',
+  },
 
+  // 用户抽奖, 返回抽奖结果
+  // 指定点击的抽奖项目的id
+  // 在此id的中奖名单中查找是否有此用户
+  // 没有返回未中奖
+  // 找到返回中奖
+  userLottery: function(){
+    wx.cloud.callFunction({
+      // 云函数检查中奖名单，与用户 opneid 对比
+      name: 'checkLottery',
+      // 参数传入当前点击的抽奖项目的 id
+      data: {
+        id: 'XCWX2HffS3SWT7EH'
+      },
+      success: res => {
+        console.log(res)
+      }
+    })
   },
 
   /**
@@ -22,6 +41,9 @@ Page({
         // 所有奖品的信息
         let data = res.result.data
         console.log(data)
+        this.setData({
+          lottery: data
+        })
       }
     })
   },

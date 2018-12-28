@@ -5,11 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    value: '',
-    num: 1
+    value: '测试 value',
+    num: 1,
+    // 已经存在的抽奖，数组对象
+    lottery: []
   },
 
   submit: function(){
+      wx.showToast({
+        title: '等待云函数执行',
+        icon: 'none'
+      })
       wx.cloud.callFunction({
         name: 'addLottery',
         data: {
@@ -17,7 +23,21 @@ Page({
           num: this.data.num
         },
         success: res => {
-          
+          console.log('addLottery return',res)
+          // todo: 当前表单清空
+          // this.data.lottery
+          console.log('lottery', this.data.lottery)
+          this.data.lottery.push({ id: res.result._id, name: this.data.value, num: this.data.num})
+          let tempLottery = this.data.lottery
+          console.log('tempLottery',tempLottery)
+          this.setData({
+            lottery: tempLottery
+          })
+          this.setData({
+            value: '',
+            num: 1
+          })
+
         }
       })
   },
@@ -40,15 +60,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
     // 进入页面时先查看数据库中保存的抽奖
     wx.cloud.callFunction({
       name: 'getLottery',
-      data: {
-
-      },
+      data: {},
       success: res => {
         // 所有奖品的信息
         let data = res.result.data
+        this.setData({
+          lottery: data
+        })
         console.log(data)
       }
     })

@@ -1,3 +1,10 @@
 <!--pages/lottery/lottery.wxml-->
 <text>pages/lottery/lottery.wxml</text>
 <!-- 用户抽奖页面 -->
+<view>
+  <view wx:for="{{lottery}}" wx:key="{{index}}"> 
+       {{item.name}}{{item.num}}
+       <!-- 抽奖按钮 -->
+       <button bindtap="userLottery">抽奖</button>
+  </view>
+</view>
