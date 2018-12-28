@@ -13,16 +13,34 @@ Page({
   // 在此id的中奖名单中查找是否有此用户
   // 没有返回未中奖
   // 找到返回中奖
-  userLottery: function(){
+  userLottery: function(e){
+    let id = e.target.dataset.id
+    // console.log(id)
     wx.cloud.callFunction({
-      // 云函数检查中奖名单，与用户 opneid 对比
+      // 云函数检查中奖名单，与用户 opneid 对比，返回是否中奖
       name: 'checkLottery',
       // 参数传入当前点击的抽奖项目的 id
       data: {
-        id: 'XCWX2HffS3SWT7EH'
+        id: id
       },
       success: res => {
+        console.log('点击抽奖')
+        console.log('userLottery return res',res.result)
+
+        // if(res.result.msg == 0){
+        //   console.log('未中奖')
+        // }else if(res.result.msg == 1){
+        //   console.log('中奖')
+        // }else{
+        //   console.error('抽奖错误')
+        // }
+      },
+      fail: res => {
+        console.log('请求失败')
         console.log(res)
+      },
+      complete: res => {
+        console.log('请求结束')
       }
     })
   },
