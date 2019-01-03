@@ -1,0 +1,11 @@
+<!--pages/welcome/welcome.wxml-->
+<!-- 欢迎页，本页面获取到用户信息
+     如果用户信息已经保存，则不提示授权
+     否则提示授权
+ -->
+<!-- <text>pages/welcome/welcome.wxml</text> -->
+
+<view>
+  <!-- 进入会场按钮 -->
+  <button open-type="getUserInfo" bindgetuserinfo="getIn" >进入会场</button>
+</view>

@@ -23,7 +23,4 @@ exports.main = async (event, context) => {
     _id
   }
 
-  
-  
-
 }

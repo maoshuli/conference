@@ -24,12 +24,15 @@ App({
         if (res.result.data.length == 0){
           console.log('数据库没有此用户登录信息',res.result)
         }else{
-          // 打印看看 返回数据，返回用户 信息
+          // 打印 返回数据，返回用户 信息
           console.log('从数据库获取到用户信息', res.result)
 
-          // 获取到用户信息后保存到本地
-          this.globalData.userInfo = res.result.data[0].userInfo
-          this.globalData._openid = res.result.data[0]._openid
+          // 获取到信息后保存到本地(用户信息，用户_openid,_id)
+          this.globalData.userInfo = res.result.data[0]
+
+          // console.log(this.globalData.userInfo)
+
+          // 用户信息获取回调
           if (this.userInfoCallback){
             this.userInfoCallback(res)
           }

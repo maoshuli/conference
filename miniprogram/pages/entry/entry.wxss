@@ -6,12 +6,18 @@
 
 .header-img {
   background: #eee;
-  width: 300rpx;
-  height: 300rpx;
-  border-radius: 150rpx;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 90rpx;
   box-shadow: 1px 1px 2px #aaa;
+  overflow: hidden;
 }
 
 .header-img image {
   max-width: 100%;
+  max-height: 100%;
+}
+
+.header-name {
+  text-align: center;
 }

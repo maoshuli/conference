@@ -22,7 +22,7 @@ exports.main = async (event, context) => {
   // 保存用户信息
   let userInfo = null
 
-  // 查询范围，查询所有人
+  // 查询范围，查询所有人，添加参数 {scope: 'all'}
   if(event.scope == 'all'){
     let {data} = await db.collection('user').get()
 
@@ -40,7 +40,7 @@ exports.main = async (event, context) => {
   }).get()
 
   return {
-    data,
-    _openid: wxContext.OPENID
+    data
+    // _openid: wxContext.OPENID
   }
 }

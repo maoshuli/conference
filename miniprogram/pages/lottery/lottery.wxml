@@ -1,14 +1,12 @@
-<!--pages/lottery/lottery.wxml-->
-<text>pages/lottery/lottery.wxml</text>
 <!-- 用户抽奖页面 -->
 <view>
   <view wx:for="{{lottery}}" wx:key="{{index}}"> 
-       <view>
-         奖项名称：{{item.name}}
-         
-         || 人数：{{item.num}}
-       </view>
-       <!-- 抽奖按钮 -->
-       <button  data-id="{{item._id}}" bindtap="userLottery">抽奖</button>
+    <view>
+      奖项名称：{{item.name}}
+      
+      || 人数：{{item.num}}
+    </view>
+    <!-- 抽奖按钮 -->
+    <button  data-id="{{item._id}}" bindtap="userLottery">抽奖</button>
   </view>
 </view>
