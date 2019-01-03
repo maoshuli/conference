@@ -1,4 +1,7 @@
 // pages/addLottery/addLottery.js
+
+const app = getApp()
+
 Page({
 
   /**
@@ -37,7 +40,6 @@ Page({
             value: '',
             num: 1
           })
-
         }
       })
   },
