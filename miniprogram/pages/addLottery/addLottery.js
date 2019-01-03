@@ -32,7 +32,6 @@ Page({
           console.log('lottery', this.data.lottery)
           this.data.lottery.push({ id: res.result._id, name: this.data.value, num: this.data.num})
           let tempLottery = this.data.lottery
-          console.log('tempLottery',tempLottery)
           this.setData({
             lottery: tempLottery
           })

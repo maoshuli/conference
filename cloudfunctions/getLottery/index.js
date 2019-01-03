@@ -13,18 +13,16 @@ exports.main = async (event, context) => {
   // lottery 数据库中保存着管理添加的抽奖项目
   // name: 抽奖项目名字
   // count: 中奖人数
-  // list: 中奖者名单
+  // list: 中奖者名单，不获取
   let { data } = await db.collection('lottery').get()
 
-
-  return {
-    data
+  // 返回奖项的 id, name, num, 奖项中奖信息不返回
+  for(let i=0;i<data.length;i++){
+    // 删除中奖信息
+    delete data[i]['list']
   }
 
   return {
-    event,
-    openid: wxContext.OPENID,
-    appid: wxContext.APPID,
-    unionid: wxContext.UNIONID,
+    data
   }
 }

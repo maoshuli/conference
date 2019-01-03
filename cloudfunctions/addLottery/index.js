@@ -72,15 +72,30 @@ exports.main = async (event, context) => {
     }
   })
 
+  // await db.collection('lottery').add({
+  //   data: {
+  //     // 奖品名称，奖品数量
+  //     name: event.name,
+  //     num: event.num,
+  //     list: giftOpenid
+  //   }
+  // }).then(res => {
+  //   _id = res._id
+  // })
+
   await db.collection('lottery').add({
     data: {
       // 奖品名称，奖品数量
       name: event.name,
       num: event.num,
       list: giftOpenid
+    },
+    success: res => {
+      _id = res._id
+    },
+    complete: res => {
+      _id= 'complete id'
     }
-  }).then(res => {
-    _id = res._id;
   })
 
   return {
