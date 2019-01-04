@@ -5,21 +5,17 @@ cloud.init()
 
 const db = cloud.database()
 const _ = db.command
+// 保存返回的数据 id
 let _id;
 
 // 云函数入口函数
 exports.main = async (event, context) => {
 
   // 选择未抽中奖品的所有用户。
-  // 不包含 hasGift: true
+  // 包含 hasGift: '' 为空的数据
   let {data} = await db.collection('user').where({
-    hasGift: _.nin([true])
+    hasGift: _.in([''])
   }).get()
-
-  // return {
-  //   num: event.num,
-  //   datalength: data.length
-  // }
 
   // 设置抽奖人数过多
   if (data.length < event.num){
@@ -28,7 +24,6 @@ exports.main = async (event, context) => {
       msg: '抽奖人数过多'
     }
   }
-
 
   // 临时保存一个创建出来的数据，从该数组中拿出数字元素，保存到 giftIndex 数组中
   let tempArry = []
@@ -56,32 +51,10 @@ exports.main = async (event, context) => {
     tempArry.splice(temp, 1)
   }
 
-
-
   // 取出中奖者的 opneid 存储在中奖列表中
   for (let i = 0; i < giftIndex.length;i++){
     giftOpenid.push(data[giftIndex[i]]['_openid'])
   }
-
-  // // 更新用户信息，给中奖用户增加中奖状态
-  // await db.collection('user').where({
-  //   _openid: _.in(giftOpenid)
-  // }).update({
-  //   data: {
-  //     hasGift: true
-  //   }
-  // })
-
-  // await db.collection('lottery').add({
-  //   data: {
-  //     // 奖品名称，奖品数量
-  //     name: event.name,
-  //     num: event.num,
-  //     list: giftOpenid
-  //   }
-  // }).then(res => {
-  //   _id = res._id
-  // })
 
   await db.collection('lottery').add({
     data: {
@@ -104,6 +77,8 @@ exports.main = async (event, context) => {
   })
 
   return {
+    status: 1,
+    msg: '奖项创建成功',
     _id
   }
 

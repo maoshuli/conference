@@ -13,7 +13,6 @@ Page({
 
   // 触发进入会场按钮，获取用户授权，保存在数据库中
   getIn: function(e){
-    console.log(e.detail)
 
     // 点击进入会场，查找数据库，
     // 如果存在用户信息，直接进入下一页
@@ -33,9 +32,8 @@ Page({
             console.log('用户拒绝获取信息')
             return;
           }
-
           // 用户为拒绝获取信息
-          // 将用户信息保存在数据后进入下一页
+          // 将用户信息保存在数据库后进入下一页
           wx.cloud.callFunction({
             name: 'addUser',
             data: {
@@ -43,16 +41,18 @@ Page({
             },
             success: res => {
               // 返回用户的openid,保存到用户信息
-              console.log(res.result)
-              app.globalData._opneid = res.result._openid
+              console.log('welcome res.result',res.result)
+              // 将数据保存在全局
               app.globalData.userInfo = e.detail.userInfo
+              // if (app.userInfoCallback){
+              //   app.userInfoCallback(e.detail.userInfo)
+              // }
               // 进入下一页
               wx.navigateTo({
                 url: '../entry/entry',
               })
             }
           })
-
         }else if(res.result.status == 1){  // 找到用户信息
           // 将用户信息保存在全局变量，进入下一页
           app.globalData.userInfo = res.result.userInfo

@@ -22,14 +22,22 @@ Page({
       wx.cloud.callFunction({
         name: 'addLottery',
         data: {
+          // 传入参数，奖项名字，中奖人数
           name: this.data.value,
           num: this.data.num
         },
         success: res => {
-          console.log('addLottery return',res)
-          // todo: 当前表单清空
-          // this.data.lottery
-          console.log('lottery', this.data.lottery)
+          console.log('addLottery return',res.result)
+
+          // 中奖人数设置过多提示
+          if(res.result.status == -1){
+            wx.showToast({
+              title: '中奖人数设置超过未中奖总人数',
+              icon: 'none'
+            })
+            return ;
+          }
+
           this.data.lottery.push({ id: res.result._id, name: this.data.value, num: this.data.num})
           let tempLottery = this.data.lottery
           this.setData({
@@ -43,14 +51,14 @@ Page({
       })
   },
 
-  // 奖项名称更改
+  // 奖项名称更新
   onChange: function(e){
-    console.log(e.detail)
     this.setData({
       value: e.detail
     })
   },
-  // 奖项人数修改
+
+  // 奖项人数更新
   onChangeNum: function(e){
     this.setData({
       num: e.detail
@@ -72,7 +80,7 @@ Page({
         this.setData({
           lottery: data
         })
-        console.log(data)
+        console.log('addLottery获取所有奖品信息data',data)
       }
     })
   },

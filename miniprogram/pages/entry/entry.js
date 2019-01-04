@@ -34,16 +34,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // // 获取页面用户信息保存到本地，如果全局没有用户信息，本页面不显示用户头像等等信息
-    // app.userInfoCallback = res => {
-    //   this.setData({
-    //     userInfo: res.result.userInfo[0]
-    //   })
-    // }
-    this.setData({
-      userInfo: app.globalData.userInfo[0]
+    // 调用云函数获取用户信息
+    wx.cloud.callFunction({
+      name: 'getUser',
+      data:{},
+      success: res => {
+        console.log('entry getUser:', res.result)
+        if(res.result.status == -1){  // 数据库没有用户信息，返回首页
+          wx.navigateTo({
+            url: '../welcome/welcome'
+          })
+        }else if(res.result.status == 1){  // 在数据库找到用户信息
+          this.setData({
+            userInfo: res.result.userInfo[0]
+          })
+        }
+      }
     })
-    
   },
 
   /**

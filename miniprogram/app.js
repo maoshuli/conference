@@ -23,15 +23,13 @@ App({
         console.log(res)
         // 如果返回空数据没有此用户，不做操作
         if (res.result.status == -1){
-          console.log('数据库没有此用户登录信息',res.result)
+          console.log('app数据库没有此用户登录信息',res.result)
         }else{
           // 打印 返回数据，返回用户 信息
-          console.log('从数据库获取到用户信息', res.result)
+          console.log('app从数据库获取到用户信息', res.result)
 
           // 获取到信息后保存到本地(用户信息，用户_openid,_id)
           this.globalData.userInfo = res.result.userInfo[0]
-
-          // console.log(this.globalData.userInfo)
 
           // 用户信息获取回调
           if (this.userInfoCallback){
