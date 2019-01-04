@@ -22,7 +22,11 @@ exports.main = async (event, context) => {
     await db.collection('user').add({
       data: {
         _openid: wxContext.OPENID,
-        userInfo: event.user
+        userInfo: event.user,
+        // hasGift：'' 抽奖信息
+        hasGift: '',
+        // tryGift: [] 尝试抽奖的 ,未抽奖 0，未中奖 -1，中奖 1
+        tryGift: [{id: '', status: -1}]
       }
     })
     return {

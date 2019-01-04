@@ -63,14 +63,14 @@ exports.main = async (event, context) => {
     giftOpenid.push(data[giftIndex[i]]['_openid'])
   }
 
-  // 更新用户信息，给中奖用户增加中奖状态
-  await db.collection('user').where({
-    _openid: _.in(giftOpenid)
-  }).update({
-    data: {
-      hasGift: true
-    }
-  })
+  // // 更新用户信息，给中奖用户增加中奖状态
+  // await db.collection('user').where({
+  //   _openid: _.in(giftOpenid)
+  // }).update({
+  //   data: {
+  //     hasGift: true
+  //   }
+  // })
 
   // await db.collection('lottery').add({
   //   data: {
@@ -89,12 +89,17 @@ exports.main = async (event, context) => {
       name: event.name,
       num: event.num,
       list: giftOpenid
-    },
-    success: res => {
-      _id = res._id
-    },
-    complete: res => {
-      _id= 'complete id'
+    }
+  }).then(res => {
+    _id = res._id
+  })
+
+  // 更新用户信息，给中奖用户增加中奖状态
+  await db.collection('user').where({
+    _openid: _.in(giftOpenid)
+  }).update({
+    data: {
+      hasGift: _id
     }
   })
 

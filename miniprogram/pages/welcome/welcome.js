@@ -15,6 +15,57 @@ Page({
   getIn: function(e){
     console.log(e.detail)
 
+    // 点击进入会场，查找数据库，
+    // 如果存在用户信息，直接进入下一页
+    // 如果不存在用户信息，提示获取数据，并保持到数据库
+
+    // 数据库获取用户信息
+    // 如果获取到用户信息，返回用户信息对象 status: 1
+    // 如果找不到用户信息，返回 status: -1
+    wx.cloud.callFunction({
+      name: 'getUser',
+      data: {},
+      success: res => {
+        console.log('尝试获取用户信息：',res.result)
+        if(res.result.status == -1){  // 未找到用户信息
+          // 拒绝获取用户信息
+          if (e.detail.userInfo == undefined) {
+            console.log('用户拒绝获取信息')
+            return;
+          }
+
+          // 用户为拒绝获取信息
+          // 将用户信息保存在数据后进入下一页
+          wx.cloud.callFunction({
+            name: 'addUser',
+            data: {
+              user: e.detail.userInfo
+            },
+            success: res => {
+              // 返回用户的openid,保存到用户信息
+              console.log(res.result)
+              app.globalData._opneid = res.result._openid
+              app.globalData.userInfo = e.detail.userInfo
+              // 进入下一页
+              wx.navigateTo({
+                url: '../entry/entry',
+              })
+            }
+          })
+
+        }else if(res.result.status == 1){  // 找到用户信息
+          // 将用户信息保存在全局变量，进入下一页
+          app.globalData.userInfo = res.result.userInfo
+          wx.navigateTo({
+            url: '../entry/entry',
+          })
+        }
+      }
+    })
+
+    return ;
+
+
     // 拒绝获取用户信息
     if (e.detail.userInfo == undefined) {
       console.log('用户拒绝获取信息')
@@ -57,7 +108,7 @@ Page({
     // 获取页面用户信息保存到本地，如果全局没有用户信息，本页面不显示用户头像等等信息
     app.userInfoCallback = res => {
       this.setData({
-        userInfo: res.result.data[0]
+        userInfo: res.result.userInfo[0]
       })
     }
 

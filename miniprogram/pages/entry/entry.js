@@ -7,7 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: null,
   },
 
   // 跳转抽奖页面
@@ -36,11 +35,15 @@ Page({
    */
   onLoad: function (options) {
     // // 获取页面用户信息保存到本地，如果全局没有用户信息，本页面不显示用户头像等等信息
-    app.userInfoCallback = res => {
-      this.setData({
-        userInfo: res.result.data[0]
-      })
-    }
+    // app.userInfoCallback = res => {
+    //   this.setData({
+    //     userInfo: res.result.userInfo[0]
+    //   })
+    // }
+    this.setData({
+      userInfo: app.globalData.userInfo[0]
+    })
+    
   },
 
   /**
@@ -61,7 +64,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    
   },
 
   /**
