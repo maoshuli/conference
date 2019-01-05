@@ -1,7 +1,12 @@
 {
   "pages": [
     "pages/welcome/welcome",
+    "pages/configure/configure",
+    "pages/addMark/addMark",
+    "pages/addLottery/addLottery",
     "pages/entry/entry",
+    "pages/lottery/lottery",
+    "pages/mark/mark",
     "pages/login/login",
     "pages/index/index",
     "pages/userConsole/userConsole",
@@ -9,12 +14,7 @@
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/animate/animate",
-    "pages/mark/mark",
-    "pages/configure/configure",
-    "pages/lottery/lottery",
-    "pages/addLottery/addLottery"
+    "pages/chooseLib/chooseLib"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

@@ -1,6 +1,0 @@
-/* pages/animate/animate.wxss */
-.dis-flex {
-  display: flex;
-  justify-content: space-evenly;
-  font-size: 40rpx;
-}

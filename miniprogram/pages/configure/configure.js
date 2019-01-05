@@ -11,7 +11,7 @@ Page({
   // 跳转评分配置页面
   toMark: function(){
     wx.navigateTo({
-      url: '../mark/mark',
+      url: '../addMark/addMark',
     })
   },
 

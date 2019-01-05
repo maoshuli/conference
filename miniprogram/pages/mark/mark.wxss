@@ -1,50 +1,36 @@
 /* pages/mark/mark.wxss */
 
-/* 存在的节目的列表 */
-/* 新增加的节目也放在这里 */
-.getProgram {
+.item {
+  border: 1px solid rgba(255,0,0,.6);
+  box-sizing: border-box;
+  padding: 10rpx;
+  margin: 10rpx;
+}
+
+.item_dec {
   display: flex;
   flex-wrap: wrap;
+  border-bottom: 1px solid #eee;
+  padding: 8rpx 0;
 }
-.getProgram_item {
-  background-color: rgba(255,0,0,.06);
+
+.item_dec > view {
   width: 100%;
   display: flex;
-  padding: 20rpx 20rpx;
   justify-content: space-between;
-  flex-direction: row;
-  align-content: center;
-  margin: 10rpx 0;
-  box-sizing: border-box;
-}
-.getProgram_item-text {
 }
 
-
-
-.program {
-  border: 1px solid greenyellow;
-  border-radius: 10rpx;
-  margin: 10rpx 20rpx;
+.item_dec > view.item_dec-title {
+  color: #aaa;
+  font-size: 30rpx;
 }
 
-.program-name {
+.item_rate {
   display: flex;
-  padding: 0 10rpx;
-  margin-top: 20rpx;
+  justify-content: space-between;
+  padding-top: 8rpx;
 }
 
-.program-name-input {
-  background-color: #eee;
-  margin-left: 20rpx;
-}
-
-.program-name-input input {
-  font-size: 32rpx;
-  padding-left: 16rpx;
-}
-
-.program-btn {
-  margin: 20rpx 0;
-  display: flex;
+.item_rate van-rate view {
+  margin: 12rpx 0;
 }
