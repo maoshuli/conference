@@ -2,37 +2,53 @@
 <view>
   <!-- 当前已经添加的节目 -->
   <!-- 进入页面时从数据库获取，添加节目后可以看到新节目 -->
-  <view>
-
+  <view class="getProgram">
+    <view class="getProgram_item" wx:for="{{program}}" data-id="{{item._id}}" wx:key="{{index}}">
+      <view class="getProgram_item-text">
+        <text>{{item.name}}</text>||
+        <text>{{item.type}}</text>
+      </view>
+      <view class="getProgram_item-btn">
+        <button data-variable="{{item._id}}" bindtap="removeProgram">删除</button>
+      </view>
+    </view>
   </view>
   <!-- 将要添加的节目 -->
-  <view>
+  <view class="program">
     <!-- 需要的信息
          节目名称
          表演团队
          节目类型
     -->
-    <view>节目名称</view>
-    <van-cell-group>
-      <van-field
-        value="{{ value }}"
-        placeholder="请输入用户名"
-        border="{{ false }}"
-        bind:change="onChange"
-      />
-  </van-cell-group>
-    <view>节目类型</view>
-    <input type="text"></input>
-    <view>表演团队</view>
-    <input type="text"></input>
-    <view>
-      <van-button type="primary">重置表单</van-button>
-      <van-button type="primary">添加节目</van-button>
+    <view class="program-name">
+      <view class="program-name-text">
+        节目名称
+      </view>
+      <view class="program-name-input">
+        <input type="text" value="{{name}}" data-variable="name" bindinput="onChange"></input>
+      </view>
+    </view>
+    <view class="program-name">
+      <view class="program-name-text">
+        节目类型
+      </view>
+      <view class="program-name-input">
+        <input type="text" value="{{type}}"  data-variable="type" bindinput="onChange"></input>
+      </view>
+    </view>
+    <view class="program-name">
+      <view class="program-name-text">
+        <text>表演团队</text>
+      </view>
+      <view class="program-name-input">
+        <input type="text" value="{{actor}}" data-variable="actor" bindinput="onChange"></input>
+      </view>
+    </view>
+
+    <view class="program-btn">
+      <button bindtap="resetInput">重置表单</button>
+      <button bindtap="addProgram">添加节目</button>
     </view>
   </view>
-  <view class="">
-    <!-- 设置使评分开始 -->
-    <van-button type="primary">开始评分</van-button>
-  </view>
-  
+
 </view>
