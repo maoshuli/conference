@@ -3,26 +3,34 @@
 
 <view>
   <!-- 获取到奖品信息 -->
-  <view>
-    <view wx:for="{{lottery}}" wx:key="{{index}}">
-      {{index + 1}}.奖项名称：{{item.name}}==
-      中奖人数：{{item.num}}
+  <view class="info">
+    <view class="info_item" wx:for="{{lottery}}" wx:key="{{index}}">
+      <view class="info_item-name">
+        {{index + 1}}.{{item.name}}
+      </view>
+      <view class="info_item-num">
+        中奖人数：{{item.num}}
+      </view>
     </view>
   </view>
   
   <!-- 设置新的奖项 -->
   <view class="setLottery">
-    <van-cell-group>
+    <!-- <van-cell-group>
       <van-field
         value="{{ value }}"
         placeholder="请输入奖项名称"
         border="{{ true }}"
         bind:change="onChange"
       />
-    </van-cell-group>
-
-    <!-- 中奖人数 -->
-    <view class="setNumber">
+    </van-cell-group> -->
+    <!-- 设置奖项名称 -->
+    <view class="setLottery_setName">
+      <text>奖项名称：</text>
+      <input type="text" bindinput="onChangeValue" value="{{value}}" placeholder="请输入奖项名称" />
+    </view>
+    <!-- 设置中奖人数 -->
+    <view class="setLottery_setNumber">
       <text>中奖人数：</text>
       <van-stepper value="{{ num }}"  bind:change="onChangeNum"/>
     </view>
@@ -31,8 +39,7 @@
   <!-- 提交奖项到数据库 -->
   <view class="btn">
     <van-button type="default" bindtap="submit">提交抽奖</van-button>
+    <van-button type="default">提交阳光普照奖(所有现在未中奖的都会中奖)</van-button>
   </view>
-
-
 
 </view>

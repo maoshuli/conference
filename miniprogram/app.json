@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/shake/shake",
     "pages/welcome/welcome",
     "pages/configure/configure",
     "pages/addMark/addMark",

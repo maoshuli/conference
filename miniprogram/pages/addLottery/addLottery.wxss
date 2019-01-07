@@ -1,24 +1,64 @@
 /* pages/addLottery/addLottery.wxss */
+/* 已经提交过的奖项 */
+.info {
 
-.setLottery {
-  display: flex;
-  flex-direction: column;
-  padding: 0 20rpx;
 }
 
-.van-cell-group {
-  font-size: 46rpx;
-  color: #000;
-}
-
-.setNumber {
+.info_item {
   display: flex;
   justify-content: space-between;
-  margin-top: 10rpx;
+  font-size: 32rpx;
+  padding: 0 10rpx;
+  height: 50rpx;
+  line-height: 50rpx;
 }
+
+.info_item-name {
+  overflow: hidden;
+}
+
+.info_item-num {
+  min-width: 30%;
+}
+
+
+
+/* 设置奖项要提交的内容 */
+.setLottery {
+  display: flex;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 20rpx 20rpx;
+  flex-direction: column;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  background-color: #efffff;
+}
+
+.setLottery_setName {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20rpx;
+}
+
+.setLottery_setName input {
+  padding-left: 10rpx;
+  font-size: 34rpx;
+}
+
+.setLottery_setNumber {
+  display: flex;
+  padding-top: 10rpx;
+  justify-content: space-between;
+}
+
 
 .btn {
   display: flex;
-  justify-content: center;
-  margin-top: 40rpx;
+  flex-direction: column;
+}
+
+.btn van-button {
+  margin: 0 auto;
+  margin-bottom: 10rpx;
 }

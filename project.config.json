@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -57,8 +57,8 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "抽奖配置",
+					"id": 4,
+					"name": "1.1抽奖配置",
 					"pathName": "pages/addLottery/addLottery",
 					"query": ""
 				},

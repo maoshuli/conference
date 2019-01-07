@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    value: '测试 value',
+    // 当前要设置的奖项属性
+    value: '',
     num: 1,
     // 已经存在的抽奖，数组对象
     lottery: []
@@ -52,9 +53,10 @@ Page({
   },
 
   // 奖项名称更新
-  onChange: function(e){
+  onChangeValue: function(e){
+    console.log(e.detail.value)
     this.setData({
-      value: e.detail
+      value: e.detail.value
     })
   },
 
@@ -69,6 +71,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 正常逻辑进入页面，获取此用户_openid
+    this.setData({
+      _openid: app.globalData._openid
+    })
     
     // 进入页面时先查看数据库中保存的抽奖
     wx.cloud.callFunction({
