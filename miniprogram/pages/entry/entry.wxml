@@ -3,11 +3,11 @@
   <view class="header">
     <!-- 头部图片 -->
     <view class="header-img">
-      <image mode="aspectFill" src="{{userInfo.userInfo.avatarUrl}}"></image>
+      <image mode="aspectFill" src="{{userInfo.avatarUrl}}"></image>
     </view>
     <!-- 姓名 -->
     <view class="header-name">
-      <text>{{userInfo.userInfo.nickName}}</text>
+      <text>{{userInfo.nickName}}</text>
     </view>
   </view>
 

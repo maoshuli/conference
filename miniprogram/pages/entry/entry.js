@@ -9,21 +9,19 @@ Page({
   data: {
   },
 
-  // 跳转抽奖页面
+  // 页面跳转
   lottery: function () {
     wx.navigateTo({
       url: '../lottery/lottery',
     })
   },
-
-  // 跳转打分页面
   mark: function(){
     wx.navigateTo({
       url: '../mark/mark',
     })
   },
 
-  // 点击管理，跳转到配置页
+  // 跳转到配置页
   confugure: function(){
     wx.navigateTo({
       url: '../configure/configure',
@@ -34,23 +32,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 调用云函数获取用户信息
-    wx.cloud.callFunction({
-      name: 'getUser',
-      data:{},
-      success: res => {
-        console.log('entry getUser:', res.result)
-        if(res.result.status == -1){  // 数据库没有用户信息，返回首页
-          wx.navigateTo({
-            url: '../welcome/welcome'
-          })
-        }else if(res.result.status == 1){  // 在数据库找到用户信息
-          this.setData({
-            userInfo: res.result.userInfo[0]
-          })
+    // 全局的用户信息存在直接使用
+    if(app.globalData.userInfo){
+      // 直接使用全局用户信息
+      console.log('数据库找到用户直接使用全局用户信息', app.globalData)
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        _openid: app.globalData._openid
+      })
+    }else{
+      // 调用云函数获取用户信息
+      wx.cloud.callFunction({
+        name: 'getUser',
+        data: {},
+        success: res => {
+          console.log('entry getUser:', res.result)
+          if (res.result.status == -1) {  // 数据库没有用户信息，返回首页
+            wx.navigateTo({
+              url: '../welcome/welcome'
+            })
+          } else if (res.result.status == 1) {  // 在数据库找到用户信息
+            this.setData({
+              userInfo: res.result.userInfo[0]
+            })
+          }
         }
-      }
-    })
+      })
+    }
   },
 
   /**

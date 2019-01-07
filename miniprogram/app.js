@@ -1,13 +1,9 @@
 //app.js
 App({
   globalData: {
-    // 全局保存用户信息
   },
 
   onLaunch: function () {
-
-    let _this = this;
-    
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -20,7 +16,6 @@ App({
     wx.cloud.callFunction({
       name: 'getUser',
       success: res => {
-        console.log(res)
         // 如果返回空数据没有此用户，不做操作
         if (res.result.status == -1){
           console.log('app数据库没有此用户登录信息',res.result)
@@ -29,14 +24,15 @@ App({
           console.log('app从数据库获取到用户信息', res.result)
 
           // 获取到信息后保存到本地(用户信息，用户_openid,_id)
-          this.globalData.userInfo = res.result.userInfo[0]
-
-          // 用户信息获取回调
-          if (this.userInfoCallback){
-            this.userInfoCallback(res)
-          }
+          this.globalData.userInfo = res.result.userInfo[0].userInfo
+          this.globalData._openid = res.result.userInfo[0]._openid
+          console.log(this.globalData)
         }
       }
     })
   }
 })
+
+// 能获取到用户信息就保存在全局
+
+// 不能获取到用户信息不做处理，由welcom页面获取提交用户信息

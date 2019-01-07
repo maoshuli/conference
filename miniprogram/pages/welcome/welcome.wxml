@@ -8,4 +8,5 @@
 <view>
   <!-- 进入会场按钮 -->
   <button open-type="getUserInfo" bindgetuserinfo="getIn" >进入会场</button>
+  <!-- <button bindtap="getIn" >进入会场</button> -->
 </view>
