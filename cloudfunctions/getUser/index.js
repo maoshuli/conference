@@ -9,12 +9,18 @@ let _ = db.command
 
 // 云函数入口函数
 // 获取调用用户的信息
+
 /**
+ * arg: scope
+ * 传入查询范围参数，如果存在参数 scope: 'all'
+ * 返回值状态： status: 2
  * 
- * 如果在数据库找到用户的 _openid
- * return: userInfo
- * 如果数据库中没有此用户的 _openid
- * return: -1
+ * 查询到用户
+ * 返回： status: 1
+ * 
+ * 未查询到用户
+ * 返回： status: -1
+ * 
  */
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()

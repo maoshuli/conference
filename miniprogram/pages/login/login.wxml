@@ -1,8 +1,19 @@
 <!--pages/login/login.wxml-->
 <view>
+  <view>
+    <text>恭喜你签到成功</text>
+  </view>
+  <view>
+    <view>
+      <text>你的抽奖编号是：</text>
+    </view>
+    <view>
+      <text>{{number}}</text>
+    </view>
+  </view>
 
   <!-- 当前用户 -->
-  <view class="self">
+  <!-- <view class="self">
     <view class="self_img">
       <image src="{{userInfo.avatarUrl}}"></image>
     </view>
@@ -10,11 +21,10 @@
       <text>{{userInfo.nickName}}</text>
     </view>
     <view class="self_status">已签到</view>
-  </view>
+  </view> -->
 
   <!-- 用户列表 -->
-  <view>
+  <!-- <view>
     <text>{{userInfo.allData}}</text>
-  </view>
-
+  </view> -->
 </view>
