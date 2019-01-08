@@ -1,43 +1,41 @@
-<!--index.wxml-->
-<view class="container">
-
-  <!-- 用户 openid -->
-  <view class="userinfo">
-    <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-    ></button>
-    <view>
-      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+<!--pages/entry/entry.wxml-->
+<view class="container entry">
+  <view class="header">
+    <!-- 头部图片 -->
+    <view class="header-img">
+      <image mode="aspectFill" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <!-- 姓名 -->
+    <view class="header-name">
+      <!-- 签到后显示 -->
+      <text>{{userInfo.nickName}}</text>
+      <!-- 未签到时显示 -->
+      <text wx:if="{{!userInfo.nickName}}">未签到</text>
     </view>
   </view>
 
-
-  <!-- 上传图片 -->
-  <view class="uploader">
-    <view class="uploader-text" bindtap="doUpload">
-      <text>上传图片</text>
-    </view>
-    <view class="uploader-container" wx:if="{{imgUrl}}">
-      <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
-    </view>
+  <view>
+    <!-- 跳转到签到页面 -->
+    <button bindgetuserinfo="" open-type="getUserInfo" bindgetuserinfo="login">签到</button>
   </view>
 
-
-  <!-- 操作数据库 -->
-  <view class="uploader">
-    <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
-      <text>前端操作数据库</text>
-    </navigator>
+  <view>
+    <!-- 跳转到抽奖页面 -->
+    <button bindtap="lottery">抽奖</button>
   </view>
 
-  <!-- 新建云函数 -->
-  <view class="uploader">
-    <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
-      <text>快速新建云函数</text>
-    </navigator>
+  <view>
+    <!-- 跳转到打分页面 -->
+    <button bindtap="vote">投票</button>
+  </view>
+
+  <!-- <view>
+    <navigator url="../vote/vote">投票</navigator>
+  </view> -->
+
+  <view>
+    <!-- 条状到配置页面 -->
+    <button bindtap="configure">管理</button>
   </view>
 
 </view>

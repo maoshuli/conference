@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "window": {
+    "navigationBarTitleText": "年会小程序入口"
+  }
 }

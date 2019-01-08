@@ -1,21 +1,20 @@
 {
   "pages": [
-    "pages/shake/shake",
+    "pages/index/index",
     "pages/welcome/welcome",
     "pages/configure/configure",
     "pages/addMark/addMark",
     "pages/addLottery/addLottery",
-    "pages/entry/entry",
     "pages/lottery/lottery",
     "pages/mark/mark",
     "pages/login/login",
-    "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/chooseLib/chooseLib",
+    "pages/vote/vote"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
