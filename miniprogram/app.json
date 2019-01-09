@@ -3,7 +3,7 @@
     "pages/index/index",
     "pages/welcome/welcome",
     "pages/configure/configure",
-    "pages/addMark/addMark",
+    "pages/addVote/addVote",
     "pages/addLottery/addLottery",
     "pages/lottery/lottery",
     "pages/mark/mark",

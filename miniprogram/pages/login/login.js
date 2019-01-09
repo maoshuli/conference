@@ -17,32 +17,34 @@ Page({
     this.setData({
       userInfo: app.globalData.userInfo
     })
-    // 获取当前用户的信息
-    wx.cloud.callFunction({
-      name: 'getUser',
-      data: {
-        // 获取所有人的信息
-        // scope: 'all'
-      },
-      success: res => {
-        // 所有用户
-        let user = res.result;
-        console.log('用户信息allData：', user.userInfo[0])
-        let tempNumber = user.userInfo[0].number
-        if (tempNumber < 9){
-          tempNumber = '0' + tempNumber
+    if(app.globalData.number){
+      this.setData({
+        number: app.globalData.number
+      })
+    }else{
+      // 获取当前用户的信息
+      wx.cloud.callFunction({
+        name: 'getUser',
+        data: {
+          // 获取所有人的信息
+          // scope: 'all'
+        },
+        success: res => {
+          // 所有用户
+          let user = res.result;
+          console.log('用户信息allData：', user.userInfo[0])
+          let tempNumber = user.userInfo[0].number
+          if (tempNumber < 9) {
+            tempNumber = '0' + tempNumber
+          }
+          // 先打印自己信息
+          this.setData({
+            number: tempNumber
+          })
+
         }
-        // 先打印自己信息
-        this.setData({
-          number: tempNumber
-        })
-
-      }
-
-    })
-
-
-
+      })
+    }
   },
 
   /**

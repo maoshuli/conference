@@ -45,10 +45,29 @@
       </view>
     </view>
 
+
+
     <view class="program-btn">
       <button bindtap="resetInput">重置表单</button>
       <button bindtap="addProgram">添加节目</button>
     </view>
+  </view>
+  
+  <view>
+    <input type="text" placeholder="待发起投票的主题"></input>
+    <view>
+      <view>
+        <button>删除</button>
+      </view>
+      <view>
+        <input type="text" placeholder="投票项目"></input>
+      </view>
+    </view>
+  </view>
+  <view>
+    <button>发起投票</button>
+    <button>管理投票</button>
+    <text>管理投票可以新增新的投票选项</text>
   </view>
 
 </view>

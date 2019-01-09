@@ -9,9 +9,9 @@ Page({
   },
 
   // 跳转评分配置页面
-  toMark: function(){
+  toVote: function(){
     wx.navigateTo({
-      url: '../addMark/addMark',
+      url: '../addVote/addVote',
     })
   },
 

@@ -26,6 +26,7 @@ App({
           // 获取到信息后保存到本地(用户信息，用户_openid,_id)
           this.globalData.userInfo = res.result.userInfo[0].userInfo
           this.globalData._openid = res.result.userInfo[0]._openid
+          this.globalData.number = res.result.userInfo[0].number
 
           if (this.getUserInfoCallback){
             this.getUserInfoCallback(res)
