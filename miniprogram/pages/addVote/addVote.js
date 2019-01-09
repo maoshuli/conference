@@ -5,14 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // 保存已经有的节目项目
-    program:[],
-    // 节目名称
-    name: '节目名字测试',
-    // 节目类型
-    type: '小品',
-    // 表演团队
-    actor: '艺术团'
+    // 投票主题
+    name: '',
+    // 投票项目,用数组保存项目
+    // 每次内容变动同步整个数组
+    item: [
+      { name: '' }
+    ] 
   },
 
   // 重置表单
@@ -45,6 +44,73 @@ Page({
       })
     }
   },
+
+  // 名字修改
+  changeName: function(e){
+    this.setData({
+      name: e.detail.value
+    })
+  },
+
+  // 项目内容修改
+  changeItem: function(e){
+    let index = e.currentTarget.dataset.index
+    this.data.item[index].name = e.detail.value
+    let temp = this.data.item
+    this.setData({
+      item: temp
+    })
+  },
+
+  // 增加投票项目
+  addItem: function(e){
+    this.data.item.push({name: ''})
+    let temp = this.data.item
+    this.setData({
+      item: temp
+    })
+  },
+
+  // 删除项目
+  delItem: function(e){
+    console.log(e.currentTarget.dataset.index)
+    let index = e.currentTarget.dataset.index
+    this.data.item.splice(index, 1)
+
+    let temp = this.data.item
+    this.setData({
+      item: temp
+    })
+  },
+
+  // 增加投票
+  addVote: function(e){
+    // 提交不能有未填写表单
+    if(this.data.name == ''){
+      console.log('主题不能为空')
+      return ;
+    }
+    for(let i=0;i<this.data.item.length;i++){
+      if(this.data.item[i].name == ''){
+        console.log('投票项目不能有空')
+        return;
+      }
+    }
+
+    wx.cloud.callFunction({
+      name: 'addVote',
+      data: {
+        name: this.data.name,
+        item: this.data.item
+      },
+      success: res => {
+        console.log('添加投票主题', res.result)
+      }
+    })
+  },
+
+
+
 
   // 添加节目
   // 添加节目后前端用户可以看到相关节目，并且可以评分

@@ -48,3 +48,55 @@
   margin: 20rpx 0;
   display: flex;
 }
+
+.vote {
+  display: flex;
+  flex-direction: column;
+}
+
+.vote_project {
+  margin: 0 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.vote_project  input {
+  background-color: rgba(255,0,0,.06);
+  height: 100%;
+  font-size: 44rpx;
+  padding-left: 16rpx;
+  /* text-indent: 16rpx; */
+}
+
+.vote_item {
+  display: flex;
+  margin-left: 30rpx;
+  margin-bottom: 10rpx;
+}
+
+/* 删除按钮 */
+.vote_item-del {
+
+}
+
+.vote_item-name {
+  margin-left: 20rpx;  
+}
+
+.vote_item-name input {
+  background-color: #eee;
+  height: 100%;
+}
+
+.vote_add-item {
+  text-align: center;
+  width: 260rpx;
+  margin: 20rpx auto;
+  border: 1px solid rgba(255, 0, 0, .8);
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 5rpx;
+  font-weight: 100;
+  color: #666;
+  font-size: 30rpx;
+}

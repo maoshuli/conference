@@ -2,7 +2,7 @@
 <view>
   <!-- 当前已经添加的节目 -->
   <!-- 进入页面时从数据库获取，添加节目后可以看到新节目 -->
-  <view class="getProgram">
+  <!-- <view class="getProgram">
     <view class="getProgram_item" wx:for="{{program}}" data-id="{{item._id}}" wx:key="{{index}}">
       <view class="getProgram_item-text">
         <text>{{item.name}}</text>||
@@ -12,14 +12,9 @@
         <button data-variable="{{item._id}}" bindtap="removeProgram">删除</button>
       </view>
     </view>
-  </view>
+  </view> -->
   <!-- 将要添加的节目 -->
-  <view class="program">
-    <!-- 需要的信息
-         节目名称
-         表演团队
-         节目类型
-    -->
+  <!-- <view class="program">
     <view class="program-name">
       <view class="program-name-text">
         节目名称
@@ -51,21 +46,26 @@
       <button bindtap="resetInput">重置表单</button>
       <button bindtap="addProgram">添加节目</button>
     </view>
-  </view>
+  </view> -->
   
-  <view>
-    <input type="text" placeholder="待发起投票的主题"></input>
-    <view>
-      <view>
-        <button>删除</button>
+  <!-- 投票配置选项 -->
+  <view class="vote">
+    <view class="vote_project">
+      <input type="text" placeholder="待发起投票的主题" value="{{value}}" bindinput="changeName"></input>
+    </view>
+    <!-- 投票项目内容 -->
+    <view class="vote_item" wx:for="{{ item }}" wx:key="{{index}}">
+      <view class="vote_item-del">
+        <button data-index="{{ index }}" bindtap="delItem">删除</button>
       </view>
-      <view>
-        <input type="text" placeholder="投票项目"></input>
+      <view class="vote_item-name">
+        <input type="text" placeholder="投票项目" bindinput="changeItem" value="{{item.name}}" data-index="{{index}}"></input>
       </view>
     </view>
+    <view class="vote_add-item" bindtap="addItem">+ 增加投票项</view>
   </view>
   <view>
-    <button>发起投票</button>
+    <button bindtap="addVote">发起投票</button>
     <button>管理投票</button>
     <text>管理投票可以新增新的投票选项</text>
   </view>
