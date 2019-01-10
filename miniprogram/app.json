@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/ranking/ranking",
     "pages/index/index",
     "pages/welcome/welcome",
     "pages/configure/configure",
@@ -15,6 +16,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "年会小程序",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   }
 }

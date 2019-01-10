@@ -1,0 +1,11 @@
+<!--pages/ranking/ranking.wxml-->
+<view class="best"  bindtap="changeTab">
+  <view class="{{active==1 ?'active':''}}" data-id='1'>最佳节目</view>
+  <view class="{{active==2 ?'active':''}}" data-id='2'>最佳男服装</view>
+  <view class="{{active==3 ?'active':''}}" data-id='3'>最佳女服装</view>
+</view>
+<view class="container">
+  <ec-canvas id="mychart-dom-bar1" canvas-id="mychart-bar1" ec="{{ ec1 }}" data-index="1"></ec-canvas>
+  <!-- <ec-canvas id="mychart-dom-bar2" canvas-id="mychart-bar2" ec="{{ ec2 }}" data-index="2"></ec-canvas> -->
+  <!-- <ec-canvas id="mychart-dom-bar3" canvas-id="mychart-bar3" ec="{{ ec3 }}" data-index="3"></ec-canvas> -->
+</view>
