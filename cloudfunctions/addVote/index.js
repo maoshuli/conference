@@ -9,14 +9,16 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
 
+  // 保存新添加的数据的 id
   let _id;
 
-  // 节目数据库
-  await db.collection('program').add({
+  // vote 投票数据库
+  await db.collection('vote').add({
     data: {
-      name: event._name,
-      type: event._type,
-      actor: event._actor
+      // 保存投票主题
+      name: event.name,
+      // 保存投票中的可投项
+      item: event.item,
     }
   }).then(res => {
       _id= res._id
@@ -25,12 +27,5 @@ exports.main = async (event, context) => {
   return {
     _id,
     event
-  }
-
-  return {
-    event,
-    openid: wxContext.OPENID,
-    appid: wxContext.APPID,
-    unionid: wxContext.UNIONID,
   }
 }
