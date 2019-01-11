@@ -17,7 +17,9 @@
     // 得票数 默认 0 票
     vote: 5,
     // 或者，投票者 opneid
-    vote: ['_opneid', '_opneid', '_opneid']
+    vote: ['_opneid', '_opneid', '_opneid'],
+    // 他自己的openid 防止给自己点赞
+    actor: ['opneid']
   },
   {
     name: '小李',
@@ -34,21 +36,30 @@
 
 
 <view class="page">
-  <view>2019力美年会现场投票</view>
+  <view class="title">2019力美年会现场投票</view>
+
   <!-- 节目投票项目 -->
-  <view>
-    <!-- 投票标题 -->
-    <view>最佳节目奖</view>
-    <!-- 投票选项 -->
-    <view>
-      <!-- 投票项目 -->
-      <view>
-      <view>
-        
-      </view>
-      <view>投票
-      </view>
+  <view class="container">
+    <!-- 投票项目 -->
+    <view class="vote">
+      <!-- 投票项目标题 -->
+      <view clsss="vote_title">最佳节目</view>
+      <!-- 投票选项集合 -->
+      <view class="vote_group">
+        <!-- 单个投票选项 -->
+        <view class="vote_list">
+          <!-- 节目和表演者 -->
+          <view class="vote_list-name">
+            <view>跳大神</view>
+            <view>毛树立</view>
+          </view>
+          <view class="vote_list-btn">
+            投票
+          </view>
+
+        </view>
       </view>
     </view>
+
   </view>
 </view>

@@ -9,3 +9,15 @@ page {
 .page {
   height: 100%;
 }
+
+.title {
+  text-align: center;
+  font-size: 44rpx;
+  margin: 40rpx 0;
+}
+
+
+
+.container {
+
+}
