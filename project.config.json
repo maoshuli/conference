@@ -34,20 +34,21 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "总配置",
-					"pathName": "pages/configure/configure",
+					"name": "签到页",
+					"pathName": "pages/login/login",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "投票管理",
-					"pathName": "pages/addVote/addVote",
+					"name": "首页",
+					"pathName": "pages/index/index",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "投票排名",
-					"pathName": "pages/ranking/ranking"
+					"name": "投票页",
+					"pathName": "pages/vote/vote",
+					"query": ""
 				}
 			]
 		}

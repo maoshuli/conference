@@ -1,23 +1,37 @@
-/* pages/login/login.wxss */
-
-.self {
+page {
   display: flex;
-  flex-wrap: nowrap;
-  /* justify-content: center; */
-  align-content: center;
-  background-color: greenyellow;
-}
-
-.self_img {
-  width: 100rpx;
-  height: 100rpx;
-}
-
-.self_img image {
+  min-height: 100%;
   width: 100%;
-  height: 100%;
 }
 
-.self_status {
-  margin-left: auto;
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.page_info {
+  font-size: 52rpx;
+  margin-bottom: 100rpx;
+}
+
+.page_number {
+  font-size: 44rpx;
+}
+.page_number-content {
+  font-size: 140rpx;
+  font-weight: bold;
+}
+
+.page_enter {
+  font-size: 44rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  border: 2px solid rgba(255, 0, 0, .8);  
+  background-color: rgba(255, 0, 0, 0.3);
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 100rpx;
 }

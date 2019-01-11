@@ -1,14 +1,14 @@
 {
   "pages": [
-    "pages/ranking/ranking",
     "pages/index/index",
+    "pages/login/login",
+    "pages/ranking/ranking",
     "pages/welcome/welcome",
     "pages/configure/configure",
     "pages/addVote/addVote",
     "pages/addLottery/addLottery",
     "pages/lottery/lottery",
     "pages/mark/mark",
-    "pages/login/login",
     "pages/vote/vote"
   ],
   "window": {

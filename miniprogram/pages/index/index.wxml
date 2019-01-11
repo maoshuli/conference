@@ -14,28 +14,27 @@
     </view>
   </view>
 
-  <view>
     <!-- 跳转到签到页面 -->
-    <button bindgetuserinfo="" open-type="getUserInfo" bindgetuserinfo="login">签到</button>
-  </view>
-
-  <view>
-    <!-- 跳转到抽奖页面 -->
-    <button bindtap="lottery">抽奖</button>
-  </view>
-
-  <view>
-    <!-- 跳转到打分页面 -->
-    <button bindtap="vote">投票</button>
-  </view>
-
   <!-- <view>
-    <navigator url="../vote/vote">投票</navigator>
+    <button bindgetuserinfo="" open-type="getUserInfo" bindgetuserinfo="login">签到</button>
   </view> -->
 
+  <!-- 跳转到抽奖信息页面 -->
   <view>
-    <!-- 条状到配置页面 -->
-    <button bindtap="configure">管理</button>
+    <view>
+      <text>抽奖编号</text>
+    </view>
+    <view>
+      <text>888</text>
+    </view>
+    <view>
+      <text>点击查看中奖信息</text>
+    </view>
+  </view>
+
+  <!-- 跳转到投票页 -->
+  <view>
+    <text>年会现场投票</text>
   </view>
 
 </view>

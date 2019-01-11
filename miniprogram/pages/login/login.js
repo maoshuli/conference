@@ -10,41 +10,47 @@ Page({
     
   },
 
+  // onLoad 执行函数
+  loadPage(){
+    app.getUserInfoCallback = res => {
+      this.globalData.userInfo = res.result.userInfo[0].userInfo
+      this.globalData._openid = res.result.userInfo[0]._openid
+      this.globalData.number = res.result.userInfo[0].number
+    }
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      userInfo: app.globalData.userInfo
-    })
-    if(app.globalData.number){
-      this.setData({
-        number: app.globalData.number
-      })
-    }else{
-      // 获取当前用户的信息
-      wx.cloud.callFunction({
-        name: 'getUser',
-        data: {
-          // 获取所有人的信息
-          // scope: 'all'
-        },
-        success: res => {
-          // 所有用户
-          let user = res.result;
-          console.log('用户信息allData：', user.userInfo[0])
-          let tempNumber = user.userInfo[0].number
-          if (tempNumber < 9) {
-            tempNumber = '0' + tempNumber
-          }
-          // 先打印自己信息
-          this.setData({
-            number: tempNumber
-          })
-
-        }
-      })
-    }
+    loadPage()
+    // this.setData({
+    //   userInfo: app.globalData.userInfo
+    // })
+    // if(app.globalData.number){
+    //   this.setData({
+    //     number: app.globalData.number
+    //   })
+    // }else{
+    //   // 获取当前用户的信息
+    //   wx.cloud.callFunction({
+    //     name: 'getUser',
+    //     data: {},
+    //     success: res => {
+    //       // 所有用户
+    //       let user = res.result;
+    //       console.log('用户信息allData：', user.userInfo[0])
+    //       let tempNumber = user.userInfo[0].number
+    //       if (tempNumber < 9) {
+    //         tempNumber = '0' + tempNumber
+    //       }
+    //       // 先打印自己信息
+    //       this.setData({
+    //         number: tempNumber
+    //       })
+    //     }
+    //   })
+    // }
   },
 
   /**
