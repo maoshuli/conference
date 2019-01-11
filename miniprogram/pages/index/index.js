@@ -60,40 +60,16 @@ Page({
     }
   },
 
-  // 抽奖
-  lottery: function (e) {
-    wx.navigateTo({
-      url: '../lottery/lottery',
-    })
-  },
 
-  // 投票
-  vote: function(){
-    wx.navigateTo({
-      url: '../mark/mark',
-    })
-  },
-
-  // 管理
-  configure: function(){
-    wx.navigateTo({
-      url: '../configure/configure',
-    })
-  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 回调函数
-    app.getUserInfoCallback = res => {
-      app.globalData.userInfo = res.result.userInfo[0].userInfo
-      app.globalData._openid = res.result.userInfo[0]._openid
-      this.setData({
-        userInfo: res.result.userInfo[0].userInfo,
-        _openid: res.result.userInfo[0]._openid
-      })
-    }
+    this.setData({
+      userInfo: app.globalData.userInfo,
+      number: app.globalData.number
+    })
   },
 
   /**

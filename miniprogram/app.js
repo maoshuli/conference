@@ -31,7 +31,6 @@ App({
           if (this.getUserInfoCallback){
             this.getUserInfoCallback(res)
           }
-          
         }
       }
     })

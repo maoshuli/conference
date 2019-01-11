@@ -14,18 +14,13 @@
     </view>
   </view>
 
-    <!-- 跳转到签到页面 -->
-  <!-- <view>
-    <button bindgetuserinfo="" open-type="getUserInfo" bindgetuserinfo="login">签到</button>
-  </view> -->
-
   <!-- 跳转到抽奖信息页面 -->
   <view>
     <view>
       <text>抽奖编号</text>
     </view>
     <view>
-      <text>888</text>
+      <text>{{number}}</text>
     </view>
     <view>
       <text>点击查看中奖信息</text>

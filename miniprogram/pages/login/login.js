@@ -10,47 +10,17 @@ Page({
     
   },
 
-  // onLoad 执行函数
-  loadPage(){
-    app.getUserInfoCallback = res => {
-      this.globalData.userInfo = res.result.userInfo[0].userInfo
-      this.globalData._openid = res.result.userInfo[0]._openid
-      this.globalData.number = res.result.userInfo[0].number
-    }
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    loadPage()
-    // this.setData({
-    //   userInfo: app.globalData.userInfo
-    // })
-    // if(app.globalData.number){
-    //   this.setData({
-    //     number: app.globalData.number
-    //   })
-    // }else{
-    //   // 获取当前用户的信息
-    //   wx.cloud.callFunction({
-    //     name: 'getUser',
-    //     data: {},
-    //     success: res => {
-    //       // 所有用户
-    //       let user = res.result;
-    //       console.log('用户信息allData：', user.userInfo[0])
-    //       let tempNumber = user.userInfo[0].number
-    //       if (tempNumber < 9) {
-    //         tempNumber = '0' + tempNumber
-    //       }
-    //       // 先打印自己信息
-    //       this.setData({
-    //         number: tempNumber
-    //       })
-    //     }
-    //   })
-    // }
+    app.getUserInfoCallback = res => {
+      this.setData({
+        userInfo: res.result.userInfo[0].userInfo,
+        _opneid: res.result.userInfo[0]._openid,
+        number: res.result.userInfo[0].number
+      })
+    }
   },
 
   /**
@@ -85,7 +55,24 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    // 进入页面时获取服务器端用户信息,根据 _openid 找到用户
+    wx.cloud.callFunction({
+      name: 'getUser',
+      success: res => {
+        // 如果返回空数据没有此用户，不做操作
+        if (res.result.status == -1) {
+          console.log('app数据库没有此用户登录信息', res.result)
+        } else {
+          // 打印 返回数据，返回用户 信息
+          console.log('app从数据库获取到用户信息', res.result)
+          this.setData({
+            userInfo: res.result.userInfo[0].userInfo,
+            _openid: res.result.userInfo[0]._openid,
+            number: res.result.userInfo[0].number
+          })
+        }
+      }
+    })
   },
 
   /**
