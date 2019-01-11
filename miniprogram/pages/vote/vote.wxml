@@ -33,4 +33,22 @@
  -->
 
 
-<view>最佳节目</view>
+<view class="page">
+  <view>2019力美年会现场投票</view>
+  <!-- 节目投票项目 -->
+  <view>
+    <!-- 投票标题 -->
+    <view>最佳节目奖</view>
+    <!-- 投票选项 -->
+    <view>
+      <!-- 投票项目 -->
+      <view>
+      <view>
+        
+      </view>
+      <view>投票
+      </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,1 +1,58 @@
-/* pages/lottery/lottery.wxss */
+page {
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  flex-direction: column;
+  /* justify-content: center; */
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.page_title {
+  text-align: center;
+  font-size: 44rpx;
+  margin: 40rpx 0;
+}
+
+/* 奖品 期待 提示 */
+.page_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.page_info view {
+  width: 80%;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 38rpx;
+  text-indent: 1em;
+  border: 1px solid rgba(255, 200, 100, 0.8);
+  margin: 20rpx auto;
+}
+
+/* 我的奖品 */
+.page_my {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 0, 0, .7);
+  border-radius: 5rpx;
+  padding: 40rpx 0;
+}
+
+.page_my-title {
+  padding-left: 40rpx;
+}
+
+.page_my-gift {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 48rpx;
+  line-height: 1.6;
+}
+
+
+

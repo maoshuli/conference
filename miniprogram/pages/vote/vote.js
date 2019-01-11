@@ -1,4 +1,8 @@
 // pages/vote/vote.js
+// 
+
+
+
 Page({
 
   /**
@@ -21,7 +25,7 @@ Page({
         // 一个对象代表一个投票活动
         // 节目投票
         let data =  {
-          // 投票类型， 节目 或服装 perform fashion
+          // 投票类型，节目 或服装 perform fashion
           type: 'perform',
           // 投票名称
           name: '最佳节目',

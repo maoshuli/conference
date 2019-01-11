@@ -1,13 +1,46 @@
 <!-- 用户抽奖页面 -->
-<view>中奖信息</view>
-<view>
-  <view wx:for="{{lottery}}" wx:key="{{index}}" data-id="{{item._id}}" data-status="{{item.status}}" >
+
+<view class="page">
+  <view class="page_title">2019力美年会现场中奖信息</view>
+
+  <!-- 中奖信息 -->
+  <view wx:for="{{ lottery }}" wx:key="{{index}}">
     <view>
-      奖项名称：{{item.name}}
-      
-      || 人数：{{item.num}}
+      <text>{{item.name}} 中奖人员</text>
     </view>
-    <!-- 抽奖按钮 -->
-    <button data-id="{{item._id}}" bindtap="userLottery">抽奖</button>
+    <view wx:for="{{item.gift}}" wx:key="{{index}}">
+      {{item}}
+    </view>
   </view>
+
+  <!-- 奖品期待提示 -->
+  <view class="page_info" >
+    <view wx:for="{{ 5 - lottery.length }}" wx:key="{{ index }}">
+      <text wx:if="{{(5 - index - lottery.length) == 1}}">一</text>
+      <text wx:if="{{(5 - index - lottery.length) == 2}}">二</text>
+      <text wx:if="{{(5 - index - lottery.length) == 3}}">三</text>
+      <text wx:if="{{(5 - index - lottery.length) == 4}}">四</text>
+      <text wx:if="{{(5 - index - lottery.length) == 5}}">五</text>等奖 神秘大奖，敬请期待！</view>
+  </view>
+
+  <!-- 我的奖品 -->
+  <view class="page_my">
+    <view class="page_my-title">
+      <text>我的奖品</text>
+    </view>
+
+    <!-- 未获奖显示 -->
+    <view class="page_my-gift">
+      <text>很遗憾</text>
+      <text>年会大奖暂未降临</text>
+    </view>
+
+    <!-- 获奖显示 -->
+    <!-- <view class="page_my-gift">
+      <text>恭喜你获得</text>
+      <text>二等奖</text>
+    </view> -->
+
+  </view>
+
 </view>
