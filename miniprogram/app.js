@@ -19,6 +19,9 @@ App({
         // 如果返回空数据没有此用户，不做操作
         if (res.result.status == -1){
           console.log('app数据库没有此用户登录信息',res.result)
+          if (this.getUserInfoCallback) {
+            this.getUserInfoCallback(res)
+          }
         }else{
           // 打印 返回数据，返回用户 信息
           console.log('app从数据库获取到用户信息', res.result)

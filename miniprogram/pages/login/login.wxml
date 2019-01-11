@@ -11,6 +11,8 @@
     </view>
     <view class="page_number-content">
       <text>{{number}}</text>
+      <!-- 抽奖编号不存在时的占位文字 -->
+      <text wx:if="{{!number}}">----</text>
     </view>
   </view>
 
