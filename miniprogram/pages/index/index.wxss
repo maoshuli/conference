@@ -1,4 +1,10 @@
-/* pages/entry/entry.wxss */
+page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+}
 
 .header {
   text-align: center;
@@ -20,4 +26,43 @@
 
 .header-name {
   text-align: center;
+}
+
+.entry {
+  display: flex;
+}
+
+/* 中奖信息 */
+.lottery {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid rgba(255, 0, 0, .8);
+  width: 80%;
+  padding: 30rpx 0;
+  margin: 120rpx auto;
+  border-radius: 5rpx;
+}
+
+.lottery_code {
+  display: flex;
+  flex-direction: column;
+}
+
+.lottery_code-number {
+  font-size: 88rpx;
+  font-weight: bold;
+}
+
+.lottery_info {
+  text-decoration: underline;
+}
+
+.vote {
+  text-align: center;
+  border: 1px solid rgba(255, 0, 0, .8);
+  width: 80%;
+  padding: 30rpx 0;
+  font-size: 44rpx;
+  border-radius: 5rpx;
 }

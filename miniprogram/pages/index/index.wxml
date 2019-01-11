@@ -14,21 +14,20 @@
     </view>
   </view>
 
-  <!-- 跳转到抽奖信息页面 -->
-  <view>
-    <view>
+  <!-- 查看中奖信息信息 -->
+  <view class="lottery">
+    <view class="lottery_code">
       <text>抽奖编号</text>
+      <text class="lottery_code-number">{{ number }}</text>
+      <text class="lottery_code-number" wx:if="{{ !number }}">----</text>
     </view>
-    <view>
-      <text>{{number}}</text>
-    </view>
-    <view>
-      <text>点击查看中奖信息</text>
+    <view class="lottery_info">
+      <text bindtap="toLottery">点击查看中奖信息</text>
     </view>
   </view>
 
-  <!-- 跳转到投票页 -->
-  <view>
+  <!-- 年会现场投票 -->
+  <view class="vote" bindtap="toVote">
     <text>年会现场投票</text>
   </view>
 

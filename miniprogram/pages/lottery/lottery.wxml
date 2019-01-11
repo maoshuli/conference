@@ -1,4 +1,5 @@
 <!-- 用户抽奖页面 -->
+<view>中奖信息</view>
 <view>
   <view wx:for="{{lottery}}" wx:key="{{index}}" data-id="{{item._id}}" data-status="{{item.status}}" >
     <view>

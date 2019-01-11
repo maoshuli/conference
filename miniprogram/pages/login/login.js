@@ -15,6 +15,11 @@ Page({
    */
   onLoad: function (options) {
     app.getUserInfoCallback = res => {
+      console.log(res.result.status)
+      // 如果获取不到用户信息
+      if (res.result.status == -1){
+        return ;
+      }
       this.setData({
         userInfo: res.result.userInfo[0].userInfo,
         _opneid: res.result.userInfo[0]._openid,

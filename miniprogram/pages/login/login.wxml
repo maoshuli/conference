@@ -19,4 +19,5 @@
   <view class="page_enter">
     <navigator url="../index/index">进入年会会场</navigator>
   </view>
+  
 </view>
