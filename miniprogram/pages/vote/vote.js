@@ -42,6 +42,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.hideShareMenu()
+
 
     let data = [{
       type: 'preform',  // 投票类型  节目 服装男 服装女
