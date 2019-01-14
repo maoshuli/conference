@@ -9,19 +9,20 @@
       <text>{{item.name}} 中奖人员</text>
     </view>
     <view wx:for="{{item.gift}}" wx:key="{{index}}">
-      {{item}}
+      <image src="{{item.imgurl}}"></image>
+      {{item.nickname}}
     </view>
   </view>
 
   <!-- 奖品期待提示 -->
-  <view class="page_info" >
+  <!-- <view class="page_info" >
     <view wx:for="{{ 5 - lottery.length }}" wx:key="{{ index }}">
       <text wx:if="{{(5 - index - lottery.length) == 1}}">一</text>
       <text wx:if="{{(5 - index - lottery.length) == 2}}">二</text>
       <text wx:if="{{(5 - index - lottery.length) == 3}}">三</text>
       <text wx:if="{{(5 - index - lottery.length) == 4}}">四</text>
       <text wx:if="{{(5 - index - lottery.length) == 5}}">五</text>等奖 神秘大奖，敬请期待！</view>
-  </view>
+  </view> -->
 
   <!-- 我的奖品 -->
   <view class="page_my">
@@ -30,16 +31,16 @@
     </view>
 
     <!-- 未获奖显示 -->
-    <view class="page_my-gift">
+    <view class="page_my-gift" wx:if="{{!hasGift}}">
       <text>很遗憾</text>
       <text>年会大奖暂未降临</text>
     </view>
 
     <!-- 获奖显示 -->
-    <!-- <view class="page_my-gift">
+    <view class="page_my-gift" wx:if="{{hasGift}}"> 
       <text>恭喜你获得</text>
-      <text>二等奖</text>
-    </view> -->
+      <text>{{hasGift}}</text>
+    </view>
 
   </view>
 

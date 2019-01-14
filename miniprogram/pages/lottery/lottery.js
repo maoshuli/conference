@@ -7,25 +7,52 @@ let info = [
   {
     // 奖品名称
     name: '一等奖',
-    // 中奖信息
-    // 中奖者的 openid
-    gift: ['dfeifeifjefeij']
+    // 中奖信息数组
+    gift: [
+      // 每个对象中保存一个中奖者的信息
+      {
+        nickname: '中奖信息',
+        opneid: '中奖者opneid',
+        imgUrl: '中奖头像'
+      }
+    ]
   },
   {
-    // 奖品名称
     name: '二等奖',
-    // 中奖信息
-    // 中奖者的 openid
-    gift: ['dfeifeifjefeij', 'afeifejfaijfe']
+    gift: [
+      {
+        nickname: '中奖信息',
+        opneid: '中奖者opneid',
+        imgUrl: '中奖头像'
+      },
+      {
+        nickname: '中奖信息',
+        opneid: '中奖者opneid',
+        imgUrl: '中奖头像'
+      }
+    ]
   },
   {
-    // 奖品名称
     name: '三等奖',
-    // 中奖信息
-    // 中奖者的 openid
-    gift: ['dfeifeifjefeij', 'afeifejfaijfe', 'oYtjq0J_LRtgkIgQ91qjwYbRy-r8'],
-    nickName: '',
+    gift: [
+      {
+        nickname: '中奖信息',
+        opneid: '中奖者opneid',
+        imgUrl: '中奖头像'
+      },
+      {
+        nickname: '中奖信息',
+        opneid: '中奖者opneid',
+        imgUrl: '中奖头像'
+      },
+      {
+        nickname: '中奖信息',
+        opneid: '中奖者opneid',
+        imgUrl: '中奖头像'
+      }
+    ]
   }
+
 ]
 
 Page({
@@ -34,60 +61,44 @@ Page({
    * 页面的初始数据
    */
   data: {
-    lottery: info
+    lottery: '',
+    hasGift: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.cloud.callFunction({
+      name: 'getLottery',
+      data: {},
+      success: res => {
+        console.log('lottery 所有中奖信息', res.result)
+        let data = res.result.data
+        // 获取自己的 openid 
+        let _openid = res.result._openid
 
+        console.log(data)
 
-    // 进入页面时先查看数据库中保存的抽奖
-    // wx.cloud.callFunction({
-    //   name: 'getLottery',
-    //   data: {},
-    //   success: res => {
+        data.some((item1, index1) => {
 
-    //     // 所有奖品的信息
-    //     let data = res.result.data
+          item1.gift.some((item2, index2) => {
+            if (_openid == item2._openid){
+              // 找到后设定值
+              this.setData({
+                hasGift: data[index1].name
+              })
+              return index2
+            }
+          })
 
-    //     console.log(data)
+        })
 
-    //     // 获取用户抽奖信息
-    //     wx.cloud.callFunction({
-    //       name: 'getUser',
-    //       data: {},
-    //       success: res => {
-    //         let looteryList = res.result.userInfo[0].lotteryList
-    //         let hasGift = res.result.userInfo[0].hasGift
-    //         console.log('lottery获取用户信息getUser,抽过的奖项', res.result.userInfo[0].lotteryList)
-    //         console.log('lottery获取用户信息getUser,抽中的奖品', res.result.userInfo[0].hasGift)
-
-    //         // 给抽奖项目添加状态
-    //         // status: 0 未抽奖
-    //         // status: -1 未中奖
-    //         // status: 1 中奖
-    //         for (let i = 0; i < data.length; i++) {
-    //           data[i].status = 0
-    //           if (looteryList.indexOf(data[i]._id) >= 0) {  // 找到元素，设置为未中将
-    //             data[i].status = -1
-    //           }
-
-    //           if ((looteryList.indexOf(data[i]._id) >= 0) && (hasGift.indexOf(data[i]._id) >= 0)) {
-    //             data[i].status = 1
-    //           }
-    //         }
-    //       }
-    //     })
-    //     console.log(data)
-    //     // 将获取到的数据保存在本页变量中
-    //     this.setData({
-    //       lottery: data
-    //     })
-    //   }
-    // })
-    
+        this.setData({
+          lottery: res.result.data
+        })
+      }
+    })  
   },
 
   /**

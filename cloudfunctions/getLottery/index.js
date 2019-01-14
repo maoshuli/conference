@@ -5,6 +5,8 @@ cloud.init()
 
 const db = cloud.database();
 
+const _ = db.command
+
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -16,13 +18,15 @@ exports.main = async (event, context) => {
   // list: 中奖者名单，不获取
   let { data } = await db.collection('lottery').get()
 
-  // 返回奖项的 id, name, num, 奖项中奖信息不返回
-  for(let i=0;i<data.length;i++){
-    // 删除中奖信息
-    delete data[i]['list']
-  }
+  // // 返回奖项的 id, name, num, 奖项中奖信息不返回
+  // for(let i=0;i<data.length;i++){
+  //   // 删除中奖信息
+  //   delete data[i]['list']
+  // }
 
   return {
-    data
+    data,
+    // 返回自己的 openid, 判断中奖信息中是否有自己
+    _openid: wxContext.OPENID
   }
 }
