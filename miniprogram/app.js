@@ -23,15 +23,6 @@ App({
             this.getUserInfoCallback(res)
           }
 
-          // 如果没有此用户，给用户存储用户信息到数据库，分配抽奖编号
-          // wx.cloud.callFunction({
-          //   name: 'addUser',
-          //   data: {},
-          //   success: res => {
-          //     console.log('用户不存在新增用户',res.result)
-          //   }
-          // })
-
         }else{
           // 打印 返回数据，返回用户 信息
           console.log('app从数据库获取到用户信息', res.result)
@@ -49,7 +40,3 @@ App({
     })
   }
 })
-
-// 能获取到用户信息就保存在全局
-
-// 不能获取到用户信息不做处理，由welcom页面获取提交用户信息
