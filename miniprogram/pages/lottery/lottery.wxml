@@ -37,7 +37,7 @@
     </view>
 
     <!-- 获奖显示 -->
-    <view class="page_my-gift" wx:if="{{hasGift}}"> 
+    <view class="page_my-gift"> 
       <text>恭喜你获得</text>
       <text>{{hasGift}}</text>
     </view>

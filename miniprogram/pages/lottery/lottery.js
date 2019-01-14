@@ -52,7 +52,6 @@ let info = [
       }
     ]
   }
-
 ]
 
 Page({
@@ -81,7 +80,6 @@ Page({
         console.log(data)
 
         data.some((item1, index1) => {
-
           item1.gift.some((item2, index2) => {
             if (_openid == item2._openid){
               // 找到后设定值
@@ -91,9 +89,7 @@ Page({
               return index2
             }
           })
-
         })
-
         this.setData({
           lottery: res.result.data
         })
