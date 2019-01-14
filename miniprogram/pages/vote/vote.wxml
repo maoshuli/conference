@@ -1,43 +1,5 @@
-<!-- 节目
-  节目 id
-  节目名称
-  节目票数 * 
-  节目表演者(取最多两位)超过两位显示 等 提示文字
-  是否已经投票
- -->
-
-<!-- 服装
-  姓名
-  得票数 *
-  是否已经投票 （合并一个字段？）
-    如果已经投票 投票项 显示投票状态
-    如果有一个投票人数组中有此用户的数组，则此用户不能投此项的票，被投票的显示 投票 状态
-  {
-    type: ''  // 区分节目 男服装 女服装
-    name: '小王',
-    // 得票数 默认 0 票
-    vote: 5,
-    // 或者，投票者 opneid
-    vote: ['_opneid', '_opneid', '_opneid'],
-    // 他自己的openid 防止给自己点赞
-    actor: [{imgurl: '头像地址', opneId: 'openId', nickname: '名字'},{imgurl: '头像地址', opneId: 'openId', nickname: '名字'},{imgurl: '头像地址', opneId: 'openId', nickname: '名字'}]
-  },
-  {
-    name: '小李',
-    // 得票数 默认 0 票
-    vote: 3,
-    // 或者，投票者 opneid
-    vote: ['_opneid', '_opneid', '_opneid']
-  }
--->
-
-<!-- 个人信息
-  
- -->
-
-
 <view class="page">
-  <!--  -->
+  <!-- 选择 -->
   <view class="best"  bindtap="changeTab">
     <view class="{{active==1 ?'active':''}}" data-id='1'>最佳节目</view>
     <view class="{{active==2 ?'active':''}}" data-id='2'>最佳男服装</view>
@@ -48,23 +10,22 @@
   <!-- 节目投票项目 -->
   <!-- 切换盒子 -->
   <view class="container"> 
-    <view class="title">2019力美年会现场投票</view>
     <!-- 投票项目 -->
-    <view class="vote">
+    <view class="vote" wx:for="{{vote}}" wx:if="{{item.type == 'preform'}}" wx:key="{{index}}">
       <!-- 投票项目标题 -->
       <view clsss="vote_title">最佳节目</view>
       <!-- 投票选项集合 -->
       <view class="vote_group">
         <!-- 单个投票选项 -->
-        <view class="vote_list">
+        <view class="vote_list" wx:for="{{item.content}}" wx:key="{{index}}">
           <!-- 节目和表演者 -->
           <view class="vote_list-name">
-            <view>跳大神</view>
-            <view>毛树立</view>
+            <view>节目名称：{{item.name}}</view>
+            <view wx:for="{{item.actor}}" wx:key="{{index2}}">表演者：{{item.nickname}}</view>
           </view>
-          <view class="vote_list-btn">
-            投票
-          </view>
+          <button class="vote_list-btn" data-actor="" data-actor="" data-hasVote="item.hasVote" data-index="{{index}}" bindtap="vote">
+            投票{{ item.hasVote ? '已投票': ''}}
+          </button>
         </view>
       </view>
     </view>
