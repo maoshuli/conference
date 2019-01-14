@@ -23,7 +23,8 @@ let info = [
     name: '三等奖',
     // 中奖信息
     // 中奖者的 openid
-    gift: ['dfeifeifjefeij', 'afeifejfaijfe', 'oYtjq0J_LRtgkIgQ91qjwYbRy-r8']
+    gift: ['dfeifeifjefeij', 'afeifejfaijfe', 'oYtjq0J_LRtgkIgQ91qjwYbRy-r8'],
+    nickName: '',
   }
 ]
 

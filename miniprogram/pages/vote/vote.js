@@ -1,7 +1,4 @@
-// pages/vote/vote.js
-// 
-
-
+const app = getApp()
 
 Page({
 
@@ -12,57 +9,71 @@ Page({
 
   },
 
+  changeTab(e){
+    // 如果当前已经是相同的值点击后不再相应
+    if (this.data.active == e.target.dataset.id) {
+      return;
+    }
+    this.setData({
+      active: e.target.dataset.id
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     wx.cloud.callFunction({
-      name: 'vote',
-      data:{},
+      name: 'getVote',
+      data: {},
       success: res => {
-        console.log('获取投票信息', res.result)
-        // 活动的数据格式
-        // 一个对象代表一个投票活动
-        // 节目投票
-        let data =  {
-          // 投票类型，节目 或服装 perform fashion
-          type: 'perform',
-          // 投票名称
-          name: '最佳节目',
-          // 投票选项
-          project: [
-            // 一个对象代表一个投票可选项
+        console.log(res.reuslt)
+        // 返回数组中有三个对象
+        // 云函数获取到的数组信息
+        [{
+         type: 'preform',  // 投票类型  节目 服装男 服装女
+         title: '最佳节目',  // 投票标题
+         content: [
+           {
+              name: '过河',  // 节目名字
+              vote: ['opendi'],  // 此节目的投票者
+              actor: [{ imgUrl: '', nickname: '', opneid: '' }],  // 演员
+           },
+           {
+             name: '双人相声',  // 节目名字
+             vote: ['opendi'],  // 此节目的投票者
+             actor: [{ imgUrl: '', nickname: '', opneid: '' }],  // 演员
+           }
+         ]
+        },
+        {
+          type: 'boy',  // 投票类型  节目 服装男 服装女
+          title: '最佳男服装',  // 投票标题
+          content: [
             {
-              // 节目标题
-              title: '歌唱大赛我的家',
-              // 表演者
-              actor: ['小王', '小李'],
-              // 投票人
-              vote: ['_opneid', '_opneid_334r393432']
+              vote: ['opendi'],  // 此节目的投票者
+              actor: [{ imgUrl: '', nickname: '', opneid: '' }],  // 演员
             },
             {
-              title: '看一江春水向东流',
-              actor: ['李玉刚'],
-              vote: ['_opneid', '_opneid_334r39343245']
-            },
-          ]
-        }
-        // 服装投票
-        let data1 = {
-          type: 'fashion',
-          // 投票名称
-          name: '最佳男服装',
-          project: [
-            // 一个投票项 对象
-            {
-              // 姓名
-              title: '小王',
-              // 投此选项的openid  默认为空
-              vote: ['opneid', '121212123']
-              // 签到
+              vote: ['opendi'],  // 此节目的投票者
+              actor: [{ imgUrl: '', nickname: '', opneid: '' }],  // 演员
             }
           ]
-        }
+        },
+        {
+          type: 'girl',  // 投票类型  节目 服装男 服装女
+          title: '最佳女服装',  // 投票标题
+          content: [
+            {
+              vote: ['opendi'],  // 此节目的投票者
+              actor: [{ imgUrl: '', nickname: '', opneid: '' }],  // 演员
+            },
+            {
+              vote: ['opendi'],  // 此节目的投票者
+              actor: [{ imgUrl: '', nickname: '', opneid: '' }],  // 演员
+            }
+          ]
+        }]
       }
     })
   },

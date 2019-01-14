@@ -13,13 +13,14 @@
     如果已经投票 投票项 显示投票状态
     如果有一个投票人数组中有此用户的数组，则此用户不能投此项的票，被投票的显示 投票 状态
   {
+    type: ''  // 区分节目 男服装 女服装
     name: '小王',
     // 得票数 默认 0 票
     vote: 5,
     // 或者，投票者 opneid
     vote: ['_opneid', '_opneid', '_opneid'],
     // 他自己的openid 防止给自己点赞
-    actor: ['opneid']
+    actor: [{imgurl: '头像地址', opneId: 'openId', nickname: '名字'},{imgurl: '头像地址', opneId: 'openId', nickname: '名字'},{imgurl: '头像地址', opneId: 'openId', nickname: '名字'}]
   },
   {
     name: '小李',
@@ -36,10 +37,18 @@
 
 
 <view class="page">
-  <view class="title">2019力美年会现场投票</view>
+  <!--  -->
+  <view class="best"  bindtap="changeTab">
+    <view class="{{active==1 ?'active':''}}" data-id='1'>最佳节目</view>
+    <view class="{{active==2 ?'active':''}}" data-id='2'>最佳男服装</view>
+    <view class="{{active==3 ?'active':''}}" data-id='3'>最佳女服装</view>
+  </view>
+
 
   <!-- 节目投票项目 -->
-  <view class="container">
+  <!-- 切换盒子 -->
+  <view class="container"> 
+    <view class="title">2019力美年会现场投票</view>
     <!-- 投票项目 -->
     <view class="vote">
       <!-- 投票项目标题 -->
@@ -56,10 +65,9 @@
           <view class="vote_list-btn">
             投票
           </view>
-
         </view>
       </view>
     </view>
-
   </view>
+
 </view>
