@@ -9,25 +9,13 @@
 
   <!-- 节目投票项目 -->
   <!-- 切换盒子 -->
-  <view class="container"> 
-    <!-- 投票项目 -->
-    <view class="vote" wx:for="{{vote}}" wx:if="{{item.type == 'preform'}}" wx:key="{{index}}">
-      <!-- 投票项目标题 -->
-      <view clsss="vote_title">最佳节目</view>
-      <!-- 投票选项集合 -->
-      <view class="vote_group">
-        <!-- 单个投票选项 -->
-        <view class="vote_list" wx:for="{{item.content}}" wx:key="{{index}}">
-          <!-- 节目和表演者 -->
-          <view class="vote_list-name">
-            <view>节目名称：{{item.name}}</view>
-            <view wx:for="{{item.actor}}" wx:key="{{index2}}">表演者：{{item.nickname}}</view>
-          </view>
-          <button class="vote_list-btn" data-actor="" data-actor="" data-hasVote="item.hasVote" data-index="{{index}}" bindtap="vote">
-            投票{{ item.hasVote ? '已投票': ''}}
-          </button>
-        </view>
-      </view>
+  <view style="border-bottom: 1px solid #ddd;" wx:for="{{vote}}" wx:for-item="vote"  wx:for-index="vote_index" wx:key="vote_index">
+    {{vote.title}}
+    {{vote.type}}
+    <view wx:for="{{vote.content}}" wx:for-item="content" wx:for-index="content_index" wx:key="content_index">
+      <view>{{content.name}}</view>
+      <!-- 数据中第几个 -->
+      <button bindtap="vote" data-content="{{content_index}}" data-vote="{{vote_index}}">投票{{content.hasVote?"中":''}}</button>
     </view>
   </view>
 

@@ -57,3 +57,7 @@ page {
 .container {
   height: 94%;
 }
+
+.vote {
+  
+}
