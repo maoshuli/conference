@@ -9,29 +9,33 @@ page {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  text-align: center;
-}
-
-.page_info {
-  font-size: 52rpx;
-  margin-bottom: 100rpx;
+  background-position: top center;
+  background-size: 100%;
 }
 
 .page_number {
-  font-size: 44rpx;
+  text-align: center;
+}
+
+.page_number-text {
+  font-size: 42rpx;
 }
 .page_number-content {
-  font-size: 140rpx;
+  font-size: 170rpx;
+  color: #4f0d10;
   font-weight: bold;
 }
 
 .page_enter {
-  font-size: 44rpx;
-  height: 66rpx;
-  line-height: 66rpx;
-  border: 2px solid rgba(255, 0, 0, .8);  
-  background-color: rgba(255, 0, 0, 0.3);
-  width: 50%;
+  width: 580rpx;
+  height: 140rpx;
+  line-height: 140rpx;
+  font-size: 42rpx;
+  border: 2px solid rgba(193, 119, 119, .2);  
+  background-color: rgba(159, 11, 11, 0.2);
+  color: #4f0d10;
+  border-radius: 10rpx;
   margin: 0 auto;
-  margin-top: 100rpx;
+  margin-top: 210rpx;
+  text-align: center;
 }

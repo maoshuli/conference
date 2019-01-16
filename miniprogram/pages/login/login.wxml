@@ -1,13 +1,9 @@
 <!--pages/login/login.wxml-->
-<view class="page">
-
-  <view class="page_info">
-    <text>恭喜你签到成功</text>
-  </view>
+<view class="page" style="background-image: url(../../images/index-bg.jpg);">
 
   <view class="page_number">
     <view class="page_number-text">
-      <text>你的抽奖编号是</text>
+      <text>你的抽奖编号是:</text>
     </view>
     <view class="page_number-content">
       <text>{{number}}</text>
