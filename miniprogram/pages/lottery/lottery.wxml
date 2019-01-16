@@ -1,6 +1,39 @@
-<!-- 用户抽奖页面 -->
-
 <view class="page">
+
+<!-- 标题 -->
+<view class="title" style="background-image: url(../../images/title-bg.png)">
+  2019年力美年会中奖信息
+</view>
+
+<!-- 中奖信息 -->
+<view class="content">
+
+  <!-- 一个奖品等级 -->
+  <view class="lottery">
+    <!-- 奖品名称 -->
+    <view class="lottery_title">一等奖 中奖人员</view>
+    <!-- 中奖者 -->
+    <view class="lottery_list">
+      <!-- 获奖用户 -->
+      <view class="lottery_user">
+        <view class="lottery_user-head"><image src="{{userInfo.avatarUrl}}"></image></view>
+        <view class="lottery_user-name">dddddddddddd</view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 自己中奖的信息 -->
+<view class="">
+
+</view>
+
+</view>
+
+
+<!-- 用户获奖信息页面 -->
+<view class="page" style='display: none;'>
   <view class="page_title">2019力美年会现场中奖信息</view>
 
   <!-- 中奖信息 -->

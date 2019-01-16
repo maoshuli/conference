@@ -3,57 +3,71 @@ page {
   width: 100%;
   min-height: 100%;
   flex-direction: column;
-  /* justify-content: center; */
 }
 
-.page {
-  display: flex;
-  flex-direction: column;
-}
-
-.page_title {
-  text-align: center;
-  font-size: 44rpx;
-  margin: 40rpx 0;
-}
-
-/* 奖品 期待 提示 */
-.page_info {
-  display: flex;
-  flex-direction: column;
-}
-
-.page_info view {
-  width: 80%;
-  height: 90rpx;
-  line-height: 90rpx;
-  font-size: 38rpx;
-  text-indent: 1em;
-  border: 1px solid rgba(255, 200, 100, 0.8);
-  margin: 20rpx auto;
-}
-
-/* 我的奖品 */
-.page_my {
-  width: 80%;
-  margin: 0 auto;
-  border: 1px solid rgba(255, 0, 0, .7);
-  border-radius: 5rpx;
-  padding: 40rpx 0;
-  margin-bottom: 10rpx;
-}
-
-.page_my-title {
-  padding-left: 40rpx;
-}
-
-.page_my-gift {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+.title {
+  width: 682rpx;
+  height: 171rpx;
+  line-height: 171rpx;
+  background-position: top center;
+  background-size: 100%;
   font-size: 48rpx;
-  line-height: 1.6;
+  color: #040000;
+  text-indent: 25rpx;
+  margin-left: 72rpx;
+  /* text-align: center; */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.lottery {
+  padding: 31rpx 0 37rpx 0;
+  border: 2px solid rgba(123, 123, 123, .1);
+  background-color: rgba(0, 0, 0, .1);
+  margin: 0 auto;
+  width: 580rpx;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+}
+
+.lottery_title {
+  font-size: 42rpx;
+  text-align: center;
+}
+
+.lottery_list {
+  margin: 0 20rpx;
+  display: flex;
+  justify-content: space-between;
 }
 
 
+.lottery_user {
+  display: flex;
+  flex-direction: column;
+  width: 120rpx;
+  align-items: center;
+}
 
+.lottery_user-head {
+  width: 100rpx;
+  height: 100rpx;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: #909090;
+}
+
+.lottery_user-name {
+  text-align: center;
+  font-size: 24rpx;
+  color: #040000;
+  line-height: 1;
+  margin-top: 16rpx;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
