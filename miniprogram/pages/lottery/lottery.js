@@ -61,7 +61,11 @@ Page({
    */
   data: {
     lottery: '',
-    hasGift: ''
+    hasGift: '',
+    // 隐藏自己的获奖信息
+    myGiftShow: false,
+    // 是否显示未开奖提示
+    pageShow: true
   },
 
   /**
@@ -73,12 +77,24 @@ Page({
       data: {},
       success: res => {
         console.log('lottery 所有中奖信息', res.result)
+
+        if(res.result.data.length <= 0){
+          this.setData({
+            pageShow: false
+          })
+        }
+
+        // 显示我的奖品
+        this.setData({
+          myGiftShow: true
+        })
         let data = res.result.data
         // 获取自己的 openid 
         let _openid = res.result._openid
 
         console.log(data)
 
+        // 在中奖信息里找到自己
         data.some((item1, index1) => {
           item1.gift.some((item2, index2) => {
             if (_openid == item2._openid){
@@ -86,7 +102,6 @@ Page({
               this.setData({
                 hasGift: data[index1].name
               })
-              return index2
             }
           })
         })
@@ -94,7 +109,7 @@ Page({
           lottery: res.result.data
         })
       }
-    })  
+    })
   },
 
   /**

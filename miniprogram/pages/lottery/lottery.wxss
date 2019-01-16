@@ -5,6 +5,15 @@ page {
   flex-direction: column;
 }
 
+.page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  background-position: top center;
+  background-size: 100%;
+}
+
 .title {
   width: 682rpx;
   height: 171rpx;
@@ -24,32 +33,36 @@ page {
 }
 
 .lottery {
-  padding: 31rpx 0 37rpx 0;
+  padding: 31rpx 0 20rpx 0;
   border: 2px solid rgba(123, 123, 123, .1);
   background-color: rgba(0, 0, 0, .1);
   margin: 0 auto;
   width: 580rpx;
   border-radius: 10rpx;
   box-sizing: border-box;
+  margin-bottom: 38rpx;
 }
 
 .lottery_title {
   font-size: 42rpx;
   text-align: center;
+  margin-bottom: 30rpx;
 }
 
 .lottery_list {
   margin: 0 20rpx;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 
 .lottery_user {
   display: flex;
   flex-direction: column;
-  width: 120rpx;
+  width: 130rpx;
   align-items: center;
+  margin-bottom: 15rpx;
 }
 
 .lottery_user-head {
@@ -59,6 +72,12 @@ page {
   border: 1px solid #000;
   border-radius: 50%;
   background-color: #909090;
+  overflow: hidden;
+}
+
+.lottery_user-head image {
+  height: 100%;
+  width: 100%;
 }
 
 .lottery_user-name {
@@ -67,7 +86,55 @@ page {
   color: #040000;
   line-height: 1;
   margin-top: 16rpx;
-  max-width: 100%;
+  max-width: 100rpx;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.my {
+  width: 580rpx;
+  height: 238rpx;
+  box-sizing: border-box;
+  border: 2px solid rgba(156, 156, 156, .2);
+  border-radius: 10rpx;
+  background-color: rgba(158, 6, 6, .2);
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 50rpx;
+}
+
+.my_title {
+  position: absolute;
+  left: 19rpx;
+  top: 32rpx;
+  font-size: 24rpx;
+  color: #040000;
+}
+
+.my_gift {
+  font-size: 42rpx;
+  color: #4f0d10;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 20rpx;
+}
+
+.noInfo {
+  width: 580rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  box-sizing: border-box;
+  border: 2px solid rgba(156, 156, 156, .2);
+  border-radius: 10rpx;
+  background-color: rgba(158, 6, 6, .2);
+  margin: 0 auto;
+  font-size: 35rpx;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -290rpx;
 }

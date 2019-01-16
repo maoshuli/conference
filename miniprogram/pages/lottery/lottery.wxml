@@ -1,4 +1,4 @@
-<view class="page">
+<view class="page" wx:if="{{pageShow}}">
 
 <!-- 标题 -->
 <view class="title" style="background-image: url(../../images/title-bg.png)">
@@ -9,72 +9,46 @@
 <view class="content">
 
   <!-- 一个奖品等级 -->
-  <view class="lottery">
+  <view class="lottery" wx:for="{{lottery}}" wx:key="index">
     <!-- 奖品名称 -->
-    <view class="lottery_title">一等奖 中奖人员</view>
+    <view class="lottery_title">{{item.name}} 中奖人员</view>
     <!-- 中奖者 -->
     <view class="lottery_list">
       <!-- 获奖用户 -->
-      <view class="lottery_user">
-        <view class="lottery_user-head"><image src="{{userInfo.avatarUrl}}"></image></view>
-        <view class="lottery_user-name">dddddddddddd</view>
+      <view class="lottery_user" wx:for="{{item.gift}}" wx:for-item="gift" wx:for-index="gift_index" wx:key="gift_index">
+        <view class="lottery_user-head"><image  mode="aspectFill" src="{{gift.avatarUrl}}"></image></view>
+        <view class="lottery_user-name">{{gift.nickname}}</view>
       </view>
+      
     </view>
   </view>
-
 </view>
 
 <!-- 自己中奖的信息 -->
-<view class="">
-
+<view class="my" wx:if="{{myGiftShow}}">
+  <view class="my_title">我的奖品</view>
+  <view class="my_gift" wx:if="{{hasGift}}">
+    <view>恭喜你获得</view>
+    <view>{{hasGift}}</view>
+  </view>
+  <!-- 未获奖时显示文字 -->
+  <view class="my_gift" wx:if="{{!hasGift}}">
+    <view>很遗憾</view>
+    <view>年终大奖暂未降临</view>
+  </view>
 </view>
 
 </view>
 
+<!-- 中奖信息暂未公布 -->
+<view wx:if="{{!pageShow}}">
 
-<!-- 用户获奖信息页面 -->
-<view class="page" style='display: none;'>
-  <view class="page_title">2019力美年会现场中奖信息</view>
+<view class="title" style="background-image: url(../../images/title-bg.png)">
+  2019年力美年会中奖信息
+</view>
 
-  <!-- 中奖信息 -->
-  <view wx:for="{{ lottery }}" wx:key="{{index}}">
-    <view>
-      <text>{{item.name}} 中奖人员</text>
-    </view>
-    <view wx:for="{{item.gift}}" wx:key="{{index}}">
-      <image src="{{item.imgurl}}"></image>
-      {{item.nickname}}
-    </view>
-  </view>
-
-  <!-- 奖品期待提示 -->
-  <!-- <view class="page_info" >
-    <view wx:for="{{ 5 - lottery.length }}" wx:key="{{ index }}">
-      <text wx:if="{{(5 - index - lottery.length) == 1}}">一</text>
-      <text wx:if="{{(5 - index - lottery.length) == 2}}">二</text>
-      <text wx:if="{{(5 - index - lottery.length) == 3}}">三</text>
-      <text wx:if="{{(5 - index - lottery.length) == 4}}">四</text>
-      <text wx:if="{{(5 - index - lottery.length) == 5}}">五</text>等奖 神秘大奖，敬请期待！</view>
-  </view> -->
-
-  <!-- 我的奖品 -->
-  <view class="page_my">
-    <view class="page_my-title">
-      <text>我的奖品</text>
-    </view>
-
-    <!-- 未获奖显示 -->
-    <view class="page_my-gift" wx:if="{{!hasGift}}">
-      <text>很遗憾</text>
-      <text>年会大奖暂未降临</text>
-    </view>
-
-    <!-- 获奖显示 -->
-    <view class="page_my-gift"> 
-      <text>恭喜你获得</text>
-      <text>{{hasGift}}</text>
-    </view>
-
-  </view>
+<view class="noInfo">
+  年会抽奖信息暂未公布，敬请期待！
+</view>
 
 </view>
