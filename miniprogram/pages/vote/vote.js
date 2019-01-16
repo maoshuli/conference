@@ -32,6 +32,11 @@ Page({
     let item = e.currentTarget.dataset.vote
     let content = e.currentTarget.dataset.content
 
+    console.log('type', this.data.vote[item].type)
+
+    // 保存当前活动 type
+    let type = this.data.vote[item].type
+
     console.log('item', item, 'content', content)
 
     // 保存两个验证，全部通过才能投票，否则返回投票失败
@@ -78,7 +83,12 @@ Page({
       // 投票先更新云端数据，再更新本地数据
       wx.cloud.callFunction({
         name: 'upVote',
-        data: {},
+        data: {
+          // 投票的类型，男女服装或节目
+          type: type,
+          item,
+          content
+        },
         success: res => {
           console.log('更新数据库', res.result)
           // 更新数据库成功后更新本地

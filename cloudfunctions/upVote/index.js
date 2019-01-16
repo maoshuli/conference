@@ -11,13 +11,38 @@ const _ = db.command
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
 
-  db.collection('vote').where({
-    type: 'boy',
-  }).update({
-    data: {
-      test: 'boy'
+  let data, status, msg, tempContent;
+
+  await db.collection('vote').where({
+    type: event.type,
+  }).get().then( res => {
+    data = res.data[0]
+  })
+
+  // return {
+  //   data
+  // }
+
+  data.content[event.item].vote.push(wxContext.OPENID)
+
+  // return {
+  //   data,
+  //   item: event.item,
+  //   content: data.content
+  // }
+
+  // 投票在投票人的数组中加入此用户的 openid
+  await db.collection('vote').doc(data._id).update({
+    data:{
+      test: 'testinfo',
+      content: data.content
     }
   })
+
+  return {
+    status,
+    msg
+  }
 
   return {
     event,
