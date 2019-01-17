@@ -3,56 +3,6 @@
 // 全部中奖信息返回一个数组，
 // 数组中包含对象
 // 每个对象为一个中奖项目信息
-let info = [
-  {
-    // 奖品名称
-    name: '一等奖',
-    // 中奖信息数组
-    gift: [
-      // 每个对象中保存一个中奖者的信息
-      {
-        nickname: '中奖信息',
-        opneid: '中奖者opneid',
-        imgUrl: '中奖头像'
-      }
-    ]
-  },
-  {
-    name: '二等奖',
-    gift: [
-      {
-        nickname: '中奖信息',
-        opneid: '中奖者opneid',
-        imgUrl: '中奖头像'
-      },
-      {
-        nickname: '中奖信息',
-        opneid: '中奖者opneid',
-        imgUrl: '中奖头像'
-      }
-    ]
-  },
-  {
-    name: '三等奖',
-    gift: [
-      {
-        nickname: '中奖信息',
-        opneid: '中奖者opneid',
-        imgUrl: '中奖头像'
-      },
-      {
-        nickname: '中奖信息',
-        opneid: '中奖者opneid',
-        imgUrl: '中奖头像'
-      },
-      {
-        nickname: '中奖信息',
-        opneid: '中奖者opneid',
-        imgUrl: '中奖头像'
-      }
-    ]
-  }
-]
 
 Page({
 

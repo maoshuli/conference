@@ -3,6 +3,11 @@ page {
   width: 100%;
   min-height: 100%;
   flex-direction: column;
+  background-image: url(https://6c2d-l-2c1be8-1258223159.tcb.qcloud.la/info-bg.jpg?sign=f701721edf833ad7bb6ca2564e24d93f&t=1547705206);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: rgb(183, 183, 183);
 }
 
 .page{
@@ -24,7 +29,15 @@ page {
   color: #040000;
   text-indent: 25rpx;
   margin-left: 72rpx;
-  /* text-align: center; */
+  position: relative;
+}
+
+.title image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 682rpx;
+  height: 171rpx;
 }
 
 .content {

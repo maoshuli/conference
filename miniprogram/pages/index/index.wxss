@@ -4,7 +4,13 @@ page {
   flex-direction: column;
   min-height: 100%;
   width: 100%;
+  background-image: url(https://6c2d-l-2c1be8-1258223159.tcb.qcloud.la/index-bg.jpg?sign=ff50b6abca4ca4a2515655cd380c0790&t=1547699768);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: #b7b7b7;
 }
+
 
 .page {
   display: flex;
@@ -157,4 +163,21 @@ page {
   padding: 30rpx 0;
   font-size: 44rpx;
   border-radius: 5rpx;
+}
+
+
+#info {
+  position: fixed;
+  top: 50%;
+  left: 85rpx;
+  width: 580rpx;
+  height: 140rpx;
+  line-height: 140rpx;
+  font-size: 42rpx;
+  border: 2px solid rgba(193, 119, 119, .2);  
+  background-color: rgba(159, 11, 11, 0.2);
+  color: #4f0d10;
+  border-radius: 10rpx;
+  margin: 0 auto;
+  text-align: center;
 }

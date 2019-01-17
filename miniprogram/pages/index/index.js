@@ -8,16 +8,13 @@ Page({
    */
   data: {
     // 默认为真，防止信息为获得时提示请签到
-    userInfo: true
+    userInfo: ''
   },
 
   // 查看中奖信息
   toLottery(){
     wx.navigateTo({
-      url: '../lottery/lottery',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      url: '../lottery/lottery'
     })
   },
 

@@ -1,4 +1,4 @@
-<view class="page" style="background-image: url(../../images/index-bg.jpg);">
+<view class="page" wx:if="{{userInfo}}">
   <!-- 头像 -->
   <view class="head">
     <view class="head_img">
@@ -33,6 +33,6 @@
      直接进入首页，提示请先扫码
      读取不到签到信息，提示扫码
 -->
-<view wx:if="{{!userInfo}}">
+<view wx:if="{{!userInfo}}" id="info">
   请先扫码
 </view>

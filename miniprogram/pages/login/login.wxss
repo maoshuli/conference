@@ -2,6 +2,21 @@ page {
   display: flex;
   min-height: 100%;
   width: 100%;
+    background-image: url(https://6c2d-l-2c1be8-1258223159.tcb.qcloud.la/index-bg.jpg?sign=ff50b6abca4ca4a2515655cd380c0790&t=1547699768);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+/* 绝对定位背景 */
+#bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: block;
+  left: 0;
+  top: 0;
+  z-index: -1;
 }
 
 .page {
@@ -9,8 +24,6 @@ page {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  background-position: top center;
-  background-size: 100%;
 }
 
 .page_number {

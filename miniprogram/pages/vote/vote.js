@@ -6,23 +6,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    active: 1
   },
 
   // 切换
   changeTab(e){
     // 如果当前已经是相同的值点击后不再相应
     if (this.data.active == e.target.dataset.id) {
-      return;
+      return ;
     }
     this.setData({
       active: e.target.dataset.id
     })
   },
 
-  // 投票
+  // 点击投票
   vote(e){
-    console.log('vote')
     console.log(e)
 
     // 获取全局保存的 openid
@@ -31,6 +30,8 @@ Page({
     // 指示点击的是哪个按钮
     let item = e.currentTarget.dataset.vote
     let content = e.currentTarget.dataset.content
+
+    console.log('item', item, 'content', content)
 
     console.log('type', this.data.vote[item].type)
 
@@ -72,13 +73,30 @@ Page({
       noActor = true
     }
 
+    if(!noActor){
+      wx.showToast({
+        title: '不能给自己投票',
+        icon: 'none'
+      })
+    }
+
+    if (!hasVote) {
+      wx.showToast({
+        title: '你已经打过call了',
+        icon: 'none'
+      })
+    }
+
 
     // 可以投票
-    
-
     console.log('hasVote', hasVote, 'noActor', noActor)
 
     if(hasVote && noActor){  // 通过两个验证才能继续
+
+      wx.showToast({
+        title: '正在打call',
+        icon: 'none'
+      })
 
       // 投票先更新云端数据，再更新本地数据
       wx.cloud.callFunction({
@@ -100,30 +118,13 @@ Page({
           this.setData({
             vote: temp
           })
+          wx.showToast({
+            title: '打call成功',
+            icon: 'none'
+          })
         }
       })
-      
     }
-
-
-
-    // 点击有首先判断点击的是哪个项目的按钮
-    // 获取 content 序号信息
-    // 点击后判断是否已经投过票
-    //   投过票返回 false
-    //   未投票 读写数据库， 将投票信息写入数据库 数据库返回 写入成功才给 本地数据 添加 投过票状态
-
-    // if(e.currentTarget.dataset.hasVote){  // 如果是真不能投票
-    //   return ;
-    // }else{
-    //   wx.cloud.callFunction({
-    //     name: 'getVote',
-    //     data: {},
-    //     success: res => {
-    //       console.log(res.result)
-    //     }
-    //   })
-    // }
   },
 
   /**
@@ -131,52 +132,6 @@ Page({
    */
   onLoad: function (options) {
     wx.hideShareMenu()
-
-
-    let data = [{
-      type: 'preform',  // 投票类型  节目 服装男 服装女
-      title: '最佳节目',  // 投票标题
-      content: [
-        {
-          name: '过河',  // 节目名字
-          vote: ['opendi'],  // 此节目的投票者
-          actor: [{ imgUrl: '', nickname: '小米', opneid: '' }, { imgUrl: '', nickname: '大米', opneid: '' }],  // 演员
-        },
-        {
-          name: '双人相声',  // 节目名字
-          vote: ['opendi', 'oYtjq0J_LRtgkIgQ91qjwYbRy-r8'],  // 此节目的投票者
-          actor: [{ imgUrl: '', nickname: '郭德纲', opneid: '' }],  // 演员
-        }
-      ]
-    },
-    {
-      type: 'boy',  // 投票类型  节目 服装男 服装女
-      title: '最佳男服装',  // 投票标题
-      content: [
-        {
-          vote: ['opendi'],  // 此节目的投票者
-          actor: [{ imgUrl: '', nickname: '', opneid: '' }],  // 演员
-        },
-        {
-          vote: ['opendi'],  // 此节目的投票者
-          actor: [{ imgUrl: '', nickname: '', opneid: '' }],  // 演员
-        }
-      ]
-    },
-    {
-      type: 'girl',  // 投票类型  节目 服装男 服装女
-      title: '最佳女服装',  // 投票标题
-      content: [
-        {
-          actor: [{ imgUrl: '', nickname: '', opneid: '' }],  // 演员
-          vote: ['oYtjq0J_LRtgkIgQ91qjwYbRy-r8'],  // 此节目的投票者
-        },
-        {
-          vote: ['opendi'],  // 此节目的投票者
-          actor: [{ imgUrl: '', nickname: '', opneid: '' }],  // 演员
-        }
-      ]
-    }]
 
     wx.cloud.callFunction({
       name: 'getVote',
@@ -212,11 +167,6 @@ Page({
         })
       }
     })
-
-    // this.setData({
-    //   // 投票项目
-    //   vote: data
-    // })
   },
 
   /**
@@ -251,7 +201,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    
   },
 
   /**
@@ -265,6 +215,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    console.log('分享')
+
   }
 })

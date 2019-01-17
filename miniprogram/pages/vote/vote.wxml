@@ -6,16 +6,92 @@
     <view class="{{active==3 ?'active':''}}" data-id='3'>最佳女服装</view>
   </view>
 
+  <!-- 投票项目切换盒子 -->
+  <view class="box">
+    <!-- 共有三个投票项目 -->
+    <!-- 一个投票项目进行循环 -->
+    <view class="vote" wx:for="{{vote}}" wx:key="index" wx:if="{{(item.type == 'perform') && (active==1)}}">
+      <view class="vote_title">
+        2019力美年会最佳节目投票
+        <image src="../../images/title-bg.png" mode="aspectFill"></image>
+      </view>
+      <view class="content" wx:for="{{item.content}}" wx:for-item="content" wx:for-index="content_index" wx:key="content_index">
+        <!-- 节目名称 -->
+        <view class="content_name">节目名称：{{content.name}}</view>
+        <!-- 参与人员 -->
+        <view class="content_actor">
+          <!-- 单个参与人员 -->
+          <view class="content_actor-user" wx:for="{{content.actor}}" wx:for-item="user" wx:for-index="user_index" wx:key="user_index">
+            <!-- 头像 -->
+            <view class="content_actor-head">
+              <image mode="aspectFill" src="{{user.avatarUrl}}"></image>
+            </view>
+            <!-- 名字 -->
+            <view class="content_actor-name">
+              {{user.nickname}}
+            </view>
+          </view>
+        </view>
+        <!-- 投票按钮 -->
+        <view class="content_btn {{content.hasVote ? 'active': ''}}" data-content="{{content_index}}" data-vote="{{index}}" bindtap="vote">
+          {{content.hasVote ? '已经' : ''}}为TA{{content.actor.length > 1 ? '们' : ''}}打call
+        </view>
+      </view>
+    </view>
 
-  <!-- 节目投票项目 -->
-  <!-- 切换盒子 -->
-  <view style="border-bottom: 1px solid #ddd;" wx:for="{{vote}}" wx:for-item="vote"  wx:for-index="vote_index" wx:key="vote_index">
-    {{vote.title}}
-    {{vote.type}}
-    <view wx:for="{{vote.content}}" wx:for-item="content" wx:for-index="content_index" wx:key="content_index">
-      <view>{{content.name}}</view>
-      <!-- 数据中第几个 -->
-      <button bindtap="vote" data-content="{{content_index}}" data-vote="{{vote_index}}">投票{{content.hasVote?"中":''}}</button>
+    <view class="vote" wx:for="{{vote}}" wx:key="index" wx:if="{{(item.type == 'boy') && (active==2)}}">
+      <view class="vote_title">
+        2019力美年会最佳男装投票
+        <image src="../../images/title-bg.png" mode="aspectFill"></image>
+      </view>
+      <view class="content" wx:for="{{item.content}}" wx:for-item="content" wx:for-index="content_index" wx:key="content_index">
+        <!-- 参与人员 -->
+        <view class="content_actor">
+          <!-- 单个参与人员 -->
+          <view class="content_actor-user" wx:for="{{content.actor}}" wx:for-item="user" wx:for-index="user_index" wx:key="user_index">
+            <!-- 头像 -->
+            <view class="content_actor-head">
+              <image mode="aspectFill" src="{{user.avatarUrl}}"></image>
+            </view>
+            <!-- 名字 -->
+            <view class="content_actor-name">
+              {{user.nickname}}
+            </view>
+          </view>
+        </view>
+        <!-- 投票按钮 -->
+        <view class="content_btn {{content.hasVote ? 'active': ''}}" data-content="{{content_index}}" data-vote="{{index}}" bindtap="vote">
+          {{content.hasVote ? '已经' : ''}}为TA{{content.actor.length > 1 ? '们' : ''}}打call
+        </view>
+      </view>
+    </view>
+
+    <view class="vote" wx:for="{{vote}}" wx:key="index" wx:if="{{(item.type == 'girl') && (active==3)}}">
+      <view class="vote_title">
+        2019力美年会最佳女装投票
+        <image src="../../images/title-bg.png" mode="aspectFill"></image>
+      </view>
+      <view class="content" wx:for="{{item.content}}" wx:for-item="content" wx:for-index="content_index" wx:key="content_index">
+        <!-- 参与人员 -->
+        <view class="content_actor">
+          <!-- 单个参与人员 -->
+          <view class="content_actor-user" wx:for="{{content.actor}}" wx:for-item="user" wx:for-index="user_index" wx:key="user_index">
+            <!-- 头像 -->
+            <view class="content_actor-head">
+              <image mode="aspectFill" src="{{user.avatarUrl}}"></image>
+            </view>
+            <!-- 名字 -->
+            <view class="content_actor-name">
+              {{user.nickname}}
+            </view>
+          </view>
+        </view>
+        <!-- 投票按钮 -->
+        <view class="content_btn {{content.hasVote ? 'active': ''}}" data-content="{{content_index}}" data-vote="{{index}}" bindtap="vote">
+          <!-- 如果已经投票显示已经文案 -->
+          {{content.hasVote ? '已经' : ''}}为TA{{content.actor.length > 1 ? '们' : ''}}打call
+        </view>
+      </view>
     </view>
   </view>
 

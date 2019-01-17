@@ -12,8 +12,6 @@ App({
       })
     }
 
-
-
     // 进入页面时获取服务器端用户信息,根据 _openid 找到用户
     wx.cloud.callFunction({
       name: 'getUser',

@@ -34,7 +34,6 @@ exports.main = async (event, context) => {
   // 投票在投票人的数组中加入此用户的 openid
   await db.collection('vote').doc(data._id).update({
     data:{
-      test: 'testinfo',
       content: data.content
     }
   })
