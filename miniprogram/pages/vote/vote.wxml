@@ -12,8 +12,7 @@
     <!-- 一个投票项目进行循环 -->
     <view class="vote" wx:for="{{vote}}" wx:key="index" wx:if="{{(item.type == 'perform') && (active==1)}}">
       <view class="vote_title">
-        2019力美年会最佳节目投票
-        <image src="../../images/title-bg.png" mode="aspectFill"></image>
+        <image src="../../images/vote-title1.png" mode="aspectFill"></image>
       </view>
       <view class="content" wx:for="{{item.content}}" wx:for-item="content" wx:for-index="content_index" wx:key="content_index">
         <!-- 节目名称 -->
@@ -41,8 +40,7 @@
 
     <view class="vote" wx:for="{{vote}}" wx:key="index" wx:if="{{(item.type == 'boy') && (active==2)}}">
       <view class="vote_title">
-        2019力美年会最佳男装投票
-        <image src="../../images/title-bg.png" mode="aspectFill"></image>
+        <image src="../../images/vote-title2.png" mode="aspectFill"></image>
       </view>
       <view class="content" wx:for="{{item.content}}" wx:for-item="content" wx:for-index="content_index" wx:key="content_index">
         <!-- 参与人员 -->
@@ -68,8 +66,7 @@
 
     <view class="vote" wx:for="{{vote}}" wx:key="index" wx:if="{{(item.type == 'girl') && (active==3)}}">
       <view class="vote_title">
-        2019力美年会最佳女装投票
-        <image src="../../images/title-bg.png" mode="aspectFill"></image>
+        <image src="../../images/vote-title3.png" mode="aspectFill"></image>
       </view>
       <view class="content" wx:for="{{item.content}}" wx:for-item="content" wx:for-index="content_index" wx:key="content_index">
         <!-- 参与人员 -->

@@ -30,6 +30,8 @@ page {
   text-indent: 25rpx;
   margin-left: 72rpx;
   position: relative;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
 }
 
 .title image {

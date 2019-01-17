@@ -4,8 +4,7 @@
 <view class="page" wx:if="{{pageShow}}">
 <!-- 标题 -->
 <view class="title">
-  2019年力美年会中奖信息
-  <image src="../../images/title-bg.png" mode="aspectFill"></image>
+  <image src="../../images/lottery-info.png" mode="aspectFill"></image>
 </view>
 
 <!-- 中奖信息 -->

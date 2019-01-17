@@ -49,9 +49,8 @@ page {
   line-height: 171rpx;
   background-position: top center;
   background-size: 100%;
-  font-size: 48rpx;
+  font-size: 42rpx;
   color: #040000;
-  text-indent: 25rpx;
   margin-left: 72rpx;
   position: relative;
 }
@@ -139,6 +138,8 @@ page {
   background-color: rgba(168, 48, 49, .2);
   color: #4f0d10;
   font-weight: bold;
+  border-bottom-left-radius: 8rpx;
+  border-bottom-right-radius: 8rpx;
 }
 
 .content_btn.active {
